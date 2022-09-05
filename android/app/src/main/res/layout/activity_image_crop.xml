@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ActivityStyle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ImageCropActivity">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/image_crop_title"
+        style="@style/TitleStyle.Small"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/gap_normal"
+        android:text="@string/image_crop_title"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Message -->
+    <TextView
+        android:id="@+id/image_crop_message"
+        style="@style/TextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/gap_normal"
+        android:text="@string/image_crop_message"
+        app:layout_constraintTop_toBottomOf="@id/image_crop_title" />
+
+    <!-- Image Crop View -->
+    <com.canhub.cropper.CropImageView
+        android:id="@+id/image_crop_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/gap_normal"
+        android:layout_marginBottom="@dimen/gap_normal"
+        app:cropFixAspectRatio="true"
+        app:cropAspectRatioX="1"
+        app:cropAspectRatioY="1"
+        app:layout_constraintBottom_toTopOf="@id/image_crop_button_okay"
+        app:layout_constraintTop_toBottomOf="@id/image_crop_message" />
+
+    <!-- Okay Button -->
+    <Button
+        android:id="@+id/image_crop_button_okay"
+        style="@style/ButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_okay"
+        android:textAlignment="textStart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <!-- Cancel Button -->
+    <Button
+        android:id="@+id/image_crop_button_cancel"
+        style="@style/ButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Main Theme Colors -->
+    <color name="primary">#FFFFCC80</color>
+    <color name="primary_dark">#FF806640</color>
+    <color name="primary_transparent">#80FFCC80</color>
+    <color name="accent">#FF80DEEA</color>
+
+    <!-- Text Colors -->
+    <color name="text">#FFFFFFFF</color>
+    <color name="text_shadow">#FF000000</color>
+    <color name="text_error">#FFF8BBD0</color>
+
+    <!-- Button Colors -->
+    <color name="button_text">@color/primary</color>
+    <color name="button_text_pressed">@color/primary_dark</color>
+    <color name="button_text_disabled">@color/primary_transparent</color>
+
+    <!-- Item Colors -->
+    <color name="item_text">@color/primary</color>
+    <color name="item_background">@android:color/transparent</color>
+    <color name="item_background_selected">#40000000</color>
+
+    <!-- Title Text Color -->
+    <color name="title">@color/text</color>
+    
+    <!-- Edit Colors -->
+    <color name="edit_background">#80000000</color>
+    <color name="edit_text">@color/primary</color>
+
+</resources>

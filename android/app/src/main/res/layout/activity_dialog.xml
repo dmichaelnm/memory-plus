@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ActivityStyle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".DialogActivity">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/dialog_title"
+        style="@style/TitleStyle.Dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/gap_small" />
+
+    <!-- Message -->
+    <TextView
+        android:id="@+id/dialog_message"
+        style="@style/TextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/gap_small"
+        android:textAlignment="center" />
+
+    <!-- Option 1 -->
+    <Button
+        android:id="@+id/dialog_button_option_1"
+        style="@style/ButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/gap_big" />
+
+    <!-- Option 2 -->
+    <Button
+        android:id="@+id/dialog_button_option_2"
+        style="@style/ButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/gap_normal" />
+
+    <!-- Option 3 -->
+    <Button
+        android:id="@+id/dialog_button_option_3"
+        style="@style/ButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/gap_normal"
+        android:visibility="invisible" />
+
+</LinearLayout>

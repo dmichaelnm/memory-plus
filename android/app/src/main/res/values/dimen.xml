@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Gaps (Margins / Paddings) -->
+    <dimen name="gap_big">16pt</dimen>
+    <dimen name="gap_normal">8pt</dimen>
+    <dimen name="gap_small">4pt</dimen>
+
+    <!-- Font Sizes -->
+    <dimen name="font_size_text">20sp</dimen>
+    <dimen name="font_size_title">48sp</dimen>
+    <dimen name="font_size_title_small">32sp</dimen>
+    <dimen name="font_size_button">32sp</dimen>
+    <dimen name="font_size_item_horizontal">32sp</dimen>
+    <dimen name="font_size_edit">24sp</dimen>
+
+    <!-- Shadow Offsets -->
+    <integer name="shadow_radius">4</integer>
+    <integer name="shadow_offset_big">12</integer>
+    <integer name="shadow_offset">6</integer>
+
+    <!-- Image Sizes -->
+    <dimen name="image_size_icon">24dp</dimen>
+    <dimen name="image_size_profile">96dp</dimen>
+
+    <!-- Radius -->
+    <dimen name="radius_item_background_selected">8pt</dimen>
+    <dimen name="radius_edit_background">8pt</dimen>
+</resources>

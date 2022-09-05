@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name" translatable="false">Memory Plus</string>
+
+    <!-- General Buttons -->
+    <string name="button_back">Back</string>
+    <string name="button_okay">Okay</string>
+    <string name="button_cancel">Cancel</string>
+
+    <!-- Content Descriptions -->
+    <string name="desc_image_title">Title Image</string>
+    <string name="desc_image_profile">Profile Image</string>
+    <string name="desc_image_profile_with_name">Profile image of %1$s</string>
+    <string name="desc_icon_remove_profile_image">Remove profile image</string>
+
+    <!-- Main Menu Activity -->
+    <string name="main_menu_title" translatable="false">mEMORY</string>
+    <string name="main_menu_sub_title">Play it with your own cards!</string>
+    <string name="main_menu_copyright_and_version" translatable="false">\u00a9 2022 Dirk Michael / Version %1$s (Build %2$d)</string>
+    <string name="main_menu_button_profiles">Profiles</string>
+    <string name="main_menu_button_card_sets">Card Sets</string>
+    <string name="main_menu_button_new_game">New Game</string>
+    <string name="main_menu_button_leaderboard">Leaderboard</string>
+
+    <!-- Image Crop Activity -->
+    <string name="image_crop_title">cROP iMAGE</string>
+    <string name="image_crop_message">Select the area of the picture that you want to use for your profile picture.</string>
+
+    <!-- Profiles Activity -->
+    <string name="profiles_title">pROFILES</string>
+    <string name="profiles_message_add">Create a profile for you and for all the players you want to play with by tapping on the \"Plus\" icon.</string>
+    <string name="profiles_message_remove">To remove a profile, tap of the profile image or name for a few seconds.</string>
+    <string name="profiles_new_profile">New Profile</string>
+    <string name="profiles_dialog_remove_title">Remove Profile?</string>
+    <string name="profiles_dialog_remove_message">Do you really want to remove this profile?</string>
+    <string name="profiles_dialog_remove_option_yes">Yes please.</string>
+    <string name="profiles_dialog_remove_option_no">No, not at all.</string>
+
+    <!-- Profile Activity -->
+    <string name="profile_title_create">cREATE pROFILE</string>
+    <string name="profile_title_edit">eDIT pPROFILE</string>
+    <string name="profile_message_create">Please provide a name for the new profile. You can also select a profile image, but this is optional.</string>
+    <string name="profile_message_edit">Here you can change your name and your profile picture.</string>
+    <string name="profile_error_empty_name">The profile name must not be empty.</string>
+    <string name="profile_error_name_not_unique">The chosen name is already used by another profile.</string>
+
+</resources>

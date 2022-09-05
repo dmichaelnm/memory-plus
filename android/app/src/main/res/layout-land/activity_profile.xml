@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ActivityStyle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".profiles.ProfileActivity">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/profile_title"
+        style="@style/TitleStyle.Small"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/profile_title_create"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Left Guideline -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/profile_guide_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <!-- Left Guideline -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/profile_guide_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.85" />
+
+    <!-- Center Panel -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/profile_panel_center"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/gap_normal"
+        app:layout_constraintBottom_toTopOf="@id/profile_button_back"
+        app:layout_constraintLeft_toRightOf="@id/profile_guide_left"
+        app:layout_constraintRight_toLeftOf="@id/profile_guide_right"
+        app:layout_constraintTop_toBottomOf="@id/profile_title">
+
+        <!-- Message -->
+        <TextView
+            android:id="@+id/profile_message"
+            style="@style/TextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@id/profile_name"
+            android:text="@string/profile_message_create"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Scroll Panel -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/gap_normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profile_message">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- Image and Name Panel -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/profile_image_and_name_panel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!-- Remove Image Button -->
+                    <ImageButton
+                        android:id="@+id/profile_button_image_remove"
+                        style="@style/IconStyle"
+                        android:layout_width="@dimen/image_size_icon"
+                        android:layout_height="@dimen/image_size_icon"
+                        android:layout_marginEnd="@dimen/gap_normal"
+                        android:contentDescription="@string/desc_icon_remove_profile_image"
+                        android:src="@drawable/selector_icon_trashcan"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toLeftOf="@id/profile_image"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <!-- Profile Image -->
+                    <ImageButton
+                        android:id="@+id/profile_image"
+                        android:layout_width="@dimen/image_size_profile"
+                        android:layout_height="@dimen/image_size_profile"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="@string/desc_image_profile"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/image_profile_empty"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/profile_button_image_remove"
+                        app:layout_constraintRight_toLeftOf="@id/profile_name"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <!-- Profile Name -->
+                    <EditText
+                        android:id="@+id/profile_name"
+                        style="@style/EditStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/gap_normal"
+                        android:autofillHints="name"
+                        android:inputType="text"
+                        android:lines="1"
+                        android:textAlignment="center"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/profile_image"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Error Message -->
+                <TextView
+                    android:id="@+id/profile_error_message"
+                    style="@style/TextStyle.Error"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/gap_normal"
+                    android:textAlignment="center"
+                    app:layout_constraintTop_toBottomOf="@id/profile_image_and_name_panel" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Back Button -->
+    <Button
+        android:id="@+id/profile_button_back"
+        style="@style/ButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

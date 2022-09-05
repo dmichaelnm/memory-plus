@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ActivityStyle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainMenuActivity">
+
+    <!-- Title Text -->
+    <TextView
+        android:id="@+id/main_menu_title"
+        style="@style/TitleStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/main_menu_title"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Sub Title Text -->
+    <TextView
+        android:id="@+id/main_menu_sub_title"
+        style="@style/TextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/main_menu_sub_title"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@id/main_menu_title" />
+
+    <!-- Left Panel -->
+    <LinearLayout
+        android:id="@+id/main_menu_panel_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="@dimen/gap_small"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/main_menu_copyright_and_version"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/main_menu_panel_right"
+        app:layout_constraintTop_toBottomOf="@id/main_menu_sub_title">
+
+        <!-- Title Image -->
+        <ImageView
+            android:id="@+id/main_menu_title_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/desc_image_title"
+            android:src="@drawable/image_title"
+            app:layout_constraintTop_toBottomOf="@id/main_menu_sub_title" />
+
+    </LinearLayout>
+
+    <!-- Right Panel -->
+    <LinearLayout
+        android:id="@+id/main_menu_panel_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/gap_small"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/main_menu_copyright_and_version"
+        app:layout_constraintLeft_toRightOf="@id/main_menu_panel_left"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/main_menu_sub_title">
+
+        <!-- Profiles Button -->
+        <Button
+            android:id="@+id/main_menu_button_profiles"
+            style="@style/ButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/main_menu_button_profiles" />
+
+        <!-- Card Sets Button -->
+        <Button
+            android:id="@+id/main_menu_button_card_sets"
+            style="@style/ButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/main_menu_button_card_sets" />
+
+        <!-- Card Sets Button -->
+        <Button
+            android:id="@+id/main_menu_button_new_game"
+            style="@style/ButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/main_menu_button_new_game" />
+
+        <!-- Leaderboard Button -->
+        <Button
+            android:id="@+id/main_menu_button_leaderboard"
+            style="@style/ButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/main_menu_button_leaderboard" />
+
+    </LinearLayout>
+
+    <!-- Copyright and Version -->
+    <TextView
+        android:id="@+id/main_menu_copyright_and_version"
+        style="@style/TextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/main_menu_copyright_and_version"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

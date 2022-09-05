@@ -1,0 +1,96 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.MemoryPlus" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+        <!-- Full Screen -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+    </style>
+
+    <!-- Activity Style -->
+    <style name="ActivityStyle">
+        <item name="android:background">@drawable/activity_background</item>
+        <item name="android:padding">@dimen/gap_normal</item>
+    </style>
+
+    <!-- Title Text Style -->
+    <style name="TitleStyle">
+        <item name="android:fontFamily">@font/title</item>
+        <item name="android:textColor">@color/title</item>
+        <item name="android:textSize">@dimen/font_size_title</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:shadowColor">@color/text_shadow</item>
+        <item name="android:shadowDx">@integer/shadow_offset_big</item>
+        <item name="android:shadowDy">@integer/shadow_offset_big</item>
+        <item name="android:shadowRadius">@integer/shadow_radius</item>
+    </style>
+
+    <style name="TitleStyle.Small">
+        <item name="android:textSize">@dimen/font_size_title_small</item>
+    </style>
+
+    <style name="TitleStyle.Dialog">
+        <item name="android:fontFamily">@font/item</item>
+    </style>
+
+    <!-- Normal Text Style -->
+    <style name="TextStyle">
+        <item name="android:fontFamily">@font/normal</item>
+        <item name="android:textColor">@color/text</item>
+        <item name="android:textSize">@dimen/font_size_text</item>
+    </style>
+
+    <!-- Error Text Style -->
+    <style name="TextStyle.Error">
+        <item name="android:textColor">@color/text_error</item>
+    </style>
+
+    <!-- Button Style -->
+    <style name="ButtonStyle">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:fontFamily">@font/item</item>
+        <item name="android:textSize">@dimen/font_size_button</item>
+        <item name="android:textColor">@color/selector_button</item>
+        <item name="android:shadowColor">@color/text_shadow</item>
+        <item name="android:shadowDx">@integer/shadow_offset_big</item>
+        <item name="android:shadowDy">@integer/shadow_offset_big</item>
+        <item name="android:shadowRadius">@integer/shadow_radius</item>
+    </style>
+
+    <!-- Icon Style -->
+    <style name="IconStyle">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+
+    <!-- Item Style -->
+    <style name="ItemStyle">
+        <item name="android:fontFamily">@font/item</item>
+        <item name="android:textColor">@color/item_text</item>
+    </style>
+
+    <!-- Item Style Horizontal -->
+    <style name="ItemStyle.Horizontal">
+        <item name="android:textSize">@dimen/font_size_item_horizontal</item>
+        <item name="android:shadowColor">@color/text_shadow</item>
+        <item name="android:shadowDx">@integer/shadow_offset_big</item>
+        <item name="android:shadowDy">@integer/shadow_offset_big</item>
+        <item name="android:shadowRadius">@integer/shadow_radius</item>
+    </style>
+
+    <!-- Edit Style -->
+    <style name="EditStyle">
+        <item name="android:padding">@dimen/gap_small</item>
+        <item name="android:background">@drawable/shape_edit_background</item>
+        <item name="android:fontFamily">@font/normal</item>
+        <item name="android:textColor">@color/edit_text</item>
+        <item name="android:textSize">@dimen/font_size_edit</item>
+    </style>
+
+</resources>
