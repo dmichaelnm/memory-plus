@@ -111,7 +111,7 @@ object ProfileManager {
     }
 
     private fun getProfilesFile(context: Context): File {
-        return File(getDirectory(context), "profiles-v$VERSION.json")
+        return File(getDirectory(context), "profiles_v$VERSION.json")
     }
 
     private fun getDirectory(context: Context): File {

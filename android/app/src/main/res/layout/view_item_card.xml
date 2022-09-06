@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/view_item_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/gap_very_small"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:padding="@dimen/gap_very_small"
+    app:layout_constraintDimensionRatio="1:1">
+
+    <!-- Card -->
+    <ImageView
+        android:id="@+id/view_item_card_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/desc_image_card"
+        android:scaleType="fitXY" />
+
+</LinearLayout>

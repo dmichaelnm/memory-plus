@@ -1,12 +1,10 @@
 package de.dmichael.android.memory.plus.profiles
 
-import android.content.Context
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
-import androidx.recyclerview.widget.RecyclerView
 import de.dmichael.android.memory.plus.R
 import de.dmichael.android.memory.plus.system.Adapter
 import de.dmichael.android.memory.plus.system.Game
@@ -18,8 +16,7 @@ class ProfilesAdapter(private val callback: (profile: Profile?, longClick: Boole
         view: View,
         val ivProfileImage: ImageView,
         val tvProfileName: TextView
-    ) : RecyclerView.ViewHolder(view) {
-        val context: Context = view.context
+    ) : Adapter.ViewHolder(view) {
         var profile: Profile? = null
     }
 
@@ -52,11 +49,17 @@ class ProfilesAdapter(private val callback: (profile: Profile?, longClick: Boole
                     R.drawable.image_item_new
                 )
             )
+            holder.ivProfileImage.contentDescription =
+                holder.context.getString(R.string.desc_image_profile_new)
             holder.tvProfileName.setText(R.string.profiles_new_profile)
         } else {
             val profile = ProfileManager.getProfile(position - 1)
             holder.profile = profile
             holder.ivProfileImage.setImageDrawable(profile.getProfileImage(holder.context))
+            holder.ivProfileImage.contentDescription = String.format(
+                holder.context.getString(R.string.desc_image_profile_with_name),
+                profile.displayName
+            )
             holder.tvProfileName.text = profile.displayName
         }
     }

@@ -10,7 +10,12 @@
     <string name="desc_image_title">Title Image</string>
     <string name="desc_image_profile">Profile Image</string>
     <string name="desc_image_profile_with_name">Profile image of %1$s</string>
+    <string name="desc_image_profile_new">New Profile</string>
+    <string name="desc_image_card_set_with_name">Card Set Image of %1$s</string>
+    <string name="desc_image_card_set_new">New Card Set</string>
     <string name="desc_icon_remove_profile_image">Remove profile image</string>
+    <string name="desc_image_card">Card Number %1$d</string>
+    <string name="desc_image_card_new">New Card</string>
 
     <!-- Main Menu Activity -->
     <string name="main_menu_title" translatable="false">mEMORY</string>
@@ -28,7 +33,7 @@
     <!-- Profiles Activity -->
     <string name="profiles_title">pROFILES</string>
     <string name="profiles_message_add">Create a profile for you and for all the players you want to play with by tapping on the \"Plus\" icon.</string>
-    <string name="profiles_message_remove">To remove a profile, tap of the profile image or name for a few seconds.</string>
+    <string name="profiles_message_remove">To remove a profile, tap on the profile image or name for a few seconds.</string>
     <string name="profiles_new_profile">New Profile</string>
     <string name="profiles_dialog_remove_title">Remove Profile?</string>
     <string name="profiles_dialog_remove_message">Do you really want to remove this profile?</string>
@@ -42,5 +47,26 @@
     <string name="profile_message_edit">Here you can change your name and your profile picture.</string>
     <string name="profile_error_empty_name">The profile name must not be empty.</string>
     <string name="profile_error_name_not_unique">The chosen name is already used by another profile.</string>
+
+    <!-- Card Sets Activity -->
+    <string name="card_sets_title">cARD sETS</string>
+    <string name="card_sets_message_add">Create or edit your card sets by clicking on the \"Plus\" icon or an existing card set.</string>
+    <string name="card_sets_message_remove">To remove a card set, tap on the card set image or name for a few seconds.</string>
+    <string name="card_sets_new_card_set">New Card Set</string>
+    <string name="card_sets_card_count">( %1$d cards )</string>
+    <string name="card_sets_dialog_remove_title">Remove Card Set?</string>
+    <string name="card_sets_dialog_remove_message">Do you really want to remove this card set?</string>
+    <string name="card_sets_dialog_remove_option_yes">Do it</string>
+    <string name="card_sets_dialog_remove_option_no">No, I\'ve changed my mind</string>
+
+    <!-- Card Set Activity -->
+    <string name="card_set_title">cARD sET</string>
+    <string name="card_set_message_name">Here you can change the name of your card set.</string>
+    <string name="card_set_message_add">Add new cards to your card set by tapping on the \"Plus\" icon. You can also change the name of your card set.</string>
+    <string name="card_set_message_remove">To remove a card, tap on the card image for a few seconds.</string>
+    <string name="card_set_error_name_empty">The name of the card set must not be empty.</string>
+    <string name="card_set_error_name_not_unique">The chosen name is already used by another card set.</string>
+    <string name="card_set_error_too_few_cards">Your card set needs at least two cards to be playable.</string>
+    <string name="card_set_image_already_exists">The image already exists and is not added twice.</string>
 
 </resources>

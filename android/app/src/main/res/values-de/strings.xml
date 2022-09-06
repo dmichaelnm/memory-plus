@@ -9,7 +9,12 @@
     <string name="desc_image_title">Titelbild</string>
     <string name="desc_image_profile_with_name">Profilbild von %1$s</string>
     <string name="desc_image_profile">Profilbild</string>
+    <string name="desc_image_profile_new">Neues Profil</string>
+    <string name="desc_image_card_set_with_name">Bild Karten-Set von %1$s</string>
+    <string name="desc_image_card_set_new">Neues Karten-Set</string>
     <string name="desc_icon_remove_profile_image">Profilbild entfernen</string>
+    <string name="desc_image_card">Karte Nummer %1$d</string>
+    <string name="desc_image_card_new">Neue Karte</string>
 
     <!-- Main Menu Activity -->
     <string name="main_menu_sub_title">Spiel es mit deinen eigenen Karten!</string>
@@ -39,5 +44,26 @@
     <string name="profile_message_edit">Du kannst hier deinen Profilname oder dein Profilbild ändern.</string>
     <string name="profile_error_empty_name">Der Name des Profils darf nicht leer sein.</string>
     <string name="profile_error_name_not_unique">Der gewählte Name wird bereits von einem anderen Profil genutzt.</string>
+
+    <!-- Card Sets Activity -->
+    <string name="card_sets_title">cARD sETS</string>
+    <string name="card_sets_message_add">Erstelle oder bearbeite deine Karten-Sets, indem du auf das \"Plus\"-Zeichen oder ein Karten-Set tippst.</string>
+    <string name="card_sets_message_remove">Um ein Karten-Set zu entfernen, tippe für ein paar Sekunden auf den Namen oder das Bild des Karten-Sets.</string>
+    <string name="card_sets_new_card_set">Neues Karten-Set</string>
+    <string name="card_sets_card_count">( %1$d Karten )</string>
+    <string name="card_sets_dialog_remove_title">Karten-Set entfernen?</string>
+    <string name="card_sets_dialog_remove_message">Willst du dieses Karten-Set wirklich entfernen?</string>
+    <string name="card_sets_dialog_remove_option_yes">Mach es</string>
+    <string name="card_sets_dialog_remove_option_no">Nein, ich habs mir anders überlegt</string>
+
+    <!-- Card Set Activity -->
+    <string name="card_set_title">kARTEN sET</string>
+    <string name="card_set_message_name">Hier kannst du den Namen des Karten-Sets ändern.</string>
+    <string name="card_set_message_add">Füge neue Karten hinzu, indem du auf das \"Plus\"-Zeichen tippst. Außerdem kannst du den Namen des Karten-Sets ändern.</string>
+    <string name="card_set_message_remove">Um eine Karte zu entfernen, tippe für ein paar Sekunden auf die Karte.</string>
+    <string name="card_set_error_name_empty">Der Name des Karten-Sets darf nicht leer sein.</string>
+    <string name="card_set_error_name_not_unique">Der gewählte Name wird bereits von einem anderen Karten-Set verwendet.</string>
+    <string name="card_set_error_too_few_cards">Dein Karten-Set braucht mindestens zwei Karten, um spielbar zu sein.</string>
+    <string name="card_set_image_already_exists">Das Bild existiert bereits und wird nicht zweimal hinzugefügt.</string>
 
 </resources>

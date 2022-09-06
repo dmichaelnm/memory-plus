@@ -25,6 +25,8 @@
         <activity android:name=".DialogActivity" />
         <activity android:name=".profiles.ProfilesActivity" />
         <activity android:name=".profiles.ProfileActivity" />
+        <activity android:name=".cardsets.CardSetsActivity" />
+        <activity android:name=".cardsets.CardSetActivity" />
     </application>
 
 </manifest>

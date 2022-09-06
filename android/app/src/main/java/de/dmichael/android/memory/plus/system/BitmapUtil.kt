@@ -1,10 +1,14 @@
 package de.dmichael.android.memory.plus.system
 
+import android.content.Context
 import android.graphics.*
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.util.Log
 import androidx.core.net.toFile
 import java.io.*
+import java.nio.channels.FileChannel
 import java.security.MessageDigest
 
 object BitmapUtil {
@@ -54,6 +58,59 @@ object BitmapUtil {
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, out)
         val hashed = digest.digest(out.toByteArray())
         return toHex(hashed)
+    }
+
+    fun combine(
+        context: Context,
+        source: Drawable,
+        target: Drawable,
+        x: Int,
+        y: Int,
+        w: Int,
+        h: Int
+    ): Drawable {
+        val sourceBitmap = (source as BitmapDrawable).bitmap
+        val metrics = context.resources.displayMetrics
+        val with = (sourceBitmap.width * metrics.density).toInt()
+        val height = (sourceBitmap.height * metrics.density).toInt()
+        val scaledSourceBitmap = Bitmap.createScaledBitmap(sourceBitmap, with, height, false)
+        val targetBitmap = (target as BitmapDrawable).bitmap
+        val newBitmap = toMutableBitmap(context, scaledSourceBitmap)
+        scaledSourceBitmap.recycle()
+
+        val dx = (x * metrics.density).toInt()
+        val dy = (y * metrics.density).toInt()
+        val dw = (w * metrics.density).toInt()
+        val dh = (h * metrics.density).toInt()
+        val canvas = Canvas(newBitmap)
+        canvas.drawBitmap(
+            targetBitmap,
+            Rect(0, 0, targetBitmap.width, targetBitmap.height),
+            Rect(dx, dy, dx + dw, dy + dh),
+            null
+        )
+
+        return BitmapDrawable(context.resources, newBitmap)
+    }
+
+    private fun toMutableBitmap(context: Context, bitmap: Bitmap): Bitmap {
+        val tmpFile = File.createTempFile("bmp", "tmp", context.cacheDir)
+        val accessFile = RandomAccessFile(tmpFile, "rw")
+        val width = bitmap.width
+        val height = bitmap.height
+        val config = bitmap.config
+        val channel = accessFile.channel
+        val map =
+            channel.map(FileChannel.MapMode.READ_WRITE, 0L, (bitmap.rowBytes * height).toLong())
+        bitmap.copyPixelsToBuffer(map)
+        val result = Bitmap.createBitmap(width, height, config)
+        map.position(0)
+        result.copyPixelsFromBuffer(map)
+        channel.close()
+        accessFile.close()
+        tmpFile.delete()
+
+        return result
     }
 
     private fun toString(bitmap: Bitmap): String {

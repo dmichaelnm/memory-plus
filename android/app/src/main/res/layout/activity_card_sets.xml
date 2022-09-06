@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ActivityStyle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".cardsets.CardSetsActivity">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/card_sets_title"
+        style="@style/TitleStyle.Small"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/gap_normal"
+        android:text="@string/card_sets_title"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Message Add -->
+    <TextView
+        android:id="@+id/card_sets_message_add"
+        style="@style/TextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/gap_normal"
+        android:text="@string/card_sets_message_add"
+        app:layout_constraintTop_toBottomOf="@id/card_sets_title" />
+
+    <!-- Recycler View (Right Panel) -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/card_sets_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/gap_small"
+        android:layout_marginTop="@dimen/gap_normal"
+        android:layout_marginBottom="@dimen/gap_normal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@id/card_sets_message_remove"
+        app:layout_constraintTop_toBottomOf="@id/card_sets_message_add"/>
+
+    <!-- Message Remove -->
+    <TextView
+        android:id="@+id/card_sets_message_remove"
+        style="@style/TextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/gap_normal"
+        android:layout_marginBottom="@dimen/gap_normal"
+        android:text="@string/card_sets_message_remove"
+        app:layout_constraintBottom_toTopOf="@id/card_sets_button_back" />
+
+    <!-- Back Button -->
+    <Button
+        android:id="@+id/card_sets_button_back"
+        style="@style/ButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
