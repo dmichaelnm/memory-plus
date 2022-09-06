@@ -149,6 +149,7 @@ class CardSet {
         val files = directory.listFiles()
         if (files == null || files.isEmpty()) {
             directory.deleteRecursively()
+            Log.v(Game.TAG, "Directory '${directory.absolutePath} deleted")
         }
     }
 }

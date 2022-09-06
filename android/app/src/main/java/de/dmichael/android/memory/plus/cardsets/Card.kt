@@ -7,9 +7,11 @@ import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.util.JsonReader
 import android.util.JsonWriter
+import android.util.Log
 import androidx.core.net.toFile
 import androidx.core.net.toUri
 import de.dmichael.android.memory.plus.system.BitmapUtil
+import de.dmichael.android.memory.plus.system.Game
 import java.io.File
 import java.util.*
 
@@ -81,5 +83,6 @@ class Card {
 
     fun release() {
         imageUri.toFile().delete()
+        Log.v(Game.TAG, "Image '$imageUri' deleted")
     }
 }
