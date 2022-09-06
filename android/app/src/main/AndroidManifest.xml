@@ -27,6 +27,7 @@
         <activity android:name=".profiles.ProfileActivity" />
         <activity android:name=".cardsets.CardSetsActivity" />
         <activity android:name=".cardsets.CardSetActivity" />
+        <activity android:name=".game.new.NewGameActivity" />
     </application>
 
 </manifest>

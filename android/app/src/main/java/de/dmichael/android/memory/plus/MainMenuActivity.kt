@@ -7,12 +7,15 @@ import android.widget.Button
 import android.widget.TextView
 import de.dmichael.android.memory.plus.cardsets.CardSetManager
 import de.dmichael.android.memory.plus.cardsets.CardSetsActivity
+import de.dmichael.android.memory.plus.game.new.NewGameActivity
 import de.dmichael.android.memory.plus.profiles.ProfileManager
 import de.dmichael.android.memory.plus.profiles.ProfilesActivity
 import de.dmichael.android.memory.plus.system.Activity
 import de.dmichael.android.memory.plus.system.Game
 
 class MainMenuActivity : Activity() {
+
+    private lateinit var btNewGame: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,6 +53,27 @@ class MainMenuActivity : Activity() {
         onButtonClick<Button>(R.id.main_menu_button_card_sets) {
             startActivity(Intent(this, CardSetsActivity::class.java))
         }
+
+        // New Game Button
+        btNewGame = findViewById(R.id.main_menu_button_new_game)
+        checkButtonNewGame()
+        onButtonClick<Button>(R.id.main_menu_button_new_game) {
+            // If just one profile and one card set is configured, start directly with the game
+            if (ProfileManager.size() == 1 && CardSetManager.size() == 1) {
+                // start game directly
+            } else {
+                startActivity(Intent(this, NewGameActivity::class.java))
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        checkButtonNewGame()
+    }
+
+    private fun checkButtonNewGame() {
+        btNewGame.isEnabled = ProfileManager.size() > 0 && CardSetManager.size() > 0
     }
 
     private fun clearCacheDirectory() {
