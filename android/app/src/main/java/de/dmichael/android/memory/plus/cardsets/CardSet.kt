@@ -124,6 +124,7 @@ class CardSet {
     }
 
     fun commit() {
+        Log.v(Game.TAG, "Card Set '$displayName': commit")
         for (i in size(false) - 1 downTo 0) {
             val card = cards[i]
             if (card.getState() == Card.State.Deleted) {
@@ -138,6 +139,7 @@ class CardSet {
     }
 
     fun rollback(context: Context) {
+        Log.v(Game.TAG, "Card Set '$displayName': rollback")
         for (card in cards) {
             if (card.getState() == Card.State.New) {
                 card.release()

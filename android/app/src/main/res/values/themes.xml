@@ -84,6 +84,37 @@
         <item name="android:shadowRadius">@integer/shadow_radius</item>
     </style>
 
+    <!-- Item Style Horizontal Text -->
+    <style name="ItemStyle.Horizontal.Text">
+        <item name="android:fontFamily">@font/normal</item>
+        <item name="android:textColor">@color/text</item>
+        <item name="android:textSize">@dimen/font_size_item_text_horizontal</item>
+        <item name="android:shadowColor">@color/text_shadow</item>
+        <item name="android:shadowDx">@integer/shadow_offset</item>
+        <item name="android:shadowDy">@integer/shadow_offset</item>
+        <item name="android:shadowRadius">@integer/shadow_radius</item>
+    </style>
+
+    <!-- Item Style Vertical -->
+    <style name="ItemStyle.Vertical">
+        <item name="android:textSize">@dimen/font_size_item_vertical</item>
+        <item name="android:shadowColor">@color/text_shadow</item>
+        <item name="android:shadowDx">@integer/shadow_offset_big</item>
+        <item name="android:shadowDy">@integer/shadow_offset_big</item>
+        <item name="android:shadowRadius">@integer/shadow_radius</item>
+    </style>
+
+    <!-- Item Style Vertical Text -->
+    <style name="ItemStyle.Vertical.Text">
+        <item name="android:textSize">@dimen/font_size_item_text_vertical</item>
+        <item name="android:textColor">@color/text</item>
+        <item name="android:fontFamily">@font/normal</item>
+        <item name="android:shadowColor">@color/text_shadow</item>
+        <item name="android:shadowDx">@integer/shadow_offset</item>
+        <item name="android:shadowDy">@integer/shadow_offset</item>
+        <item name="android:shadowRadius">@integer/shadow_radius</item>
+    </style>
+
     <!-- Edit Style -->
     <style name="EditStyle">
         <item name="android:padding">@dimen/gap_small</item>

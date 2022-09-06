@@ -36,7 +36,7 @@
         <!-- Card Count -->
         <TextView
             android:id="@+id/view_item_card_set_horizontal_card_count"
-            style="@style/TextStyle"
+            style="@style/ItemStyle.Horizontal.Text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

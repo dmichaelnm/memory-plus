@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ActivityStyle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".game.new.NewGameActivity">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/new_game_title"
+        style="@style/TitleStyle.Small"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/gap_normal"
+        android:text="@string/new_game_title"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Which Card Set Panel -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/new_game_which_card_set_panel"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/gap_normal"
+        android:layout_marginBottom="@dimen/gap_small"
+        app:layout_constraintBottom_toTopOf="@id/new_game_which_profiles_panel"
+        app:layout_constraintTop_toBottomOf="@id/new_game_title">
+
+        <!-- Text Which Card Set -->
+        <TextView
+            android:id="@+id/new_game_which_card_set_text"
+            style="@style/TextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/new_game_which_card_set"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Card Sets Recycler View -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/new_game_which_card_set_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/new_game_which_card_set_text" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Which Profiles Panel -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/new_game_which_profiles_panel"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/gap_small"
+        android:layout_marginBottom="@dimen/gap_normal"
+        app:layout_constraintBottom_toTopOf="@id/new_game_button_back"
+        app:layout_constraintTop_toBottomOf="@id/new_game_which_card_set_panel">
+
+        <!-- Text Which Card Set -->
+        <TextView
+            android:id="@+id/new_game_which_profiles_text"
+            style="@style/TextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/new_game_which_profiles"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Profiles Recycler View -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/new_game_which_profiles_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/new_game_which_profiles_text" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Start Button -->
+    <Button
+        android:id="@+id/new_game_button_okay"
+        style="@style/ButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_okay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <!-- Back Button -->
+    <Button
+        android:id="@+id/new_game_button_back"
+        style="@style/ButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

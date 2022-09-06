@@ -27,12 +27,12 @@ object CardSetManager {
             // Update Card Set
             Log.v(Game.TAG, "Updating card set '${cardSet.displayName}' (${cardSet.id})")
             cardSets[index] = cardSet
-            cardSet.commit()
         } else {
             // Add New Card Set
             Log.v(Game.TAG, "Adding new card set '${cardSet.displayName}' (${cardSet.id})")
             cardSets.add(cardSet)
         }
+        cardSet.commit()
     }
 
     fun getCardSet(index: Int): CardSet {

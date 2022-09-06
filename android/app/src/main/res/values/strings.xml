@@ -69,4 +69,10 @@
     <string name="card_set_error_too_few_cards">Your card set needs at least two cards to be playable.</string>
     <string name="card_set_image_already_exists">The image already exists and is not added twice.</string>
 
+    <!-- New Game Activity -->
+    <string name="new_game_title">nEW gAME</string>
+    <string name="new_game_which_card_set">Please select the card set you want to play with.</string>
+    <string name="new_game_which_profiles">Please select all player profiles that wish to play.</string>
+    <string name="new_game_card_set_card_count">( %1$d cards )</string>
+
 </resources>

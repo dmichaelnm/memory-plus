@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/gap_very_small"
+    android:orientation="vertical"
+    tools:ignore="UseCompoundDrawables">
+
+    <!-- Image Profile -->
+    <ImageView
+        android:id="@+id/view_item_profile_vertical_image"
+        android:layout_width="@dimen/image_size_profile"
+        android:layout_height="@dimen/image_size_profile"
+        android:contentDescription="@string/desc_image_profile_with_name" />
+
+    <!-- Profile Name -->
+    <TextView
+        android:id="@+id/view_item_profile_vertical_name"
+        style="@style/ItemStyle.Vertical"
+        android:layout_width="@dimen/image_size_profile"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

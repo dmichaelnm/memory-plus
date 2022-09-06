@@ -75,6 +75,7 @@ class Card {
 
     fun delete() {
         state = State.Deleted
+        Log.v(Game.TAG, "Card $id marked as deleted")
     }
 
     fun setUnchanged() {
