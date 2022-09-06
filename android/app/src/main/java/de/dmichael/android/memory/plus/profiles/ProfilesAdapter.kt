@@ -41,7 +41,7 @@ class ProfilesAdapter(private val callback: (profile: Profile?, longClick: Boole
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        if (position == 0) {
+        if (position == ProfileManager.size()) {
             holder.profile = null
             holder.ivProfileImage.setImageDrawable(
                 AppCompatResources.getDrawable(
@@ -53,7 +53,7 @@ class ProfilesAdapter(private val callback: (profile: Profile?, longClick: Boole
                 holder.context.getString(R.string.desc_image_profile_new)
             holder.tvProfileName.setText(R.string.profiles_new_profile)
         } else {
-            val profile = ProfileManager.getProfile(position - 1)
+            val profile = ProfileManager.getProfile(position)
             holder.profile = profile
             holder.ivProfileImage.setImageDrawable(profile.getProfileImage(holder.context))
             holder.ivProfileImage.contentDescription = String.format(

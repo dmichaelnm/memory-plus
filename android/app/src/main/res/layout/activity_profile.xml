@@ -97,13 +97,23 @@
         android:textAlignment="center"
         app:layout_constraintTop_toBottomOf="@id/profile_name" />
 
-    <!-- Back Button -->
+    <!-- Okay Button -->
     <Button
-        android:id="@+id/profile_button_back"
+        android:id="@+id/profile_button_okay"
         style="@style/ButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/button_back"
+        android:text="@string/button_okay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <!-- Cancel Button -->
+    <Button
+        android:id="@+id/profile_button_cancel"
+        style="@style/ButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
