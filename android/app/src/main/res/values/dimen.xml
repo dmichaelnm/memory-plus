@@ -4,6 +4,7 @@
     <dimen name="gap_big">16pt</dimen>
     <dimen name="gap_normal">8pt</dimen>
     <dimen name="gap_small">4pt</dimen>
+    <dimen name="gap_very_small">2pt</dimen>
 
     <!-- Font Sizes -->
     <dimen name="font_size_text">20sp</dimen>
@@ -21,6 +22,8 @@
     <!-- Image Sizes -->
     <dimen name="image_size_icon">24dp</dimen>
     <dimen name="image_size_profile">96dp</dimen>
+    <dimen name="image_size_card_set">96dp</dimen>
+    <dimen name="image_size_card">96dp</dimen>
 
     <!-- Radius -->
     <dimen name="radius_item_background_selected">8pt</dimen>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ActivityStyle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".cardsets.CardSetActivity">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/card_set_title"
+        style="@style/TitleStyle.Small"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/card_set_title"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/card_set_panel_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/gap_normal"
+        android:layout_marginEnd="@dimen/gap_small"
+        android:layout_marginBottom="@dimen/gap_normal"
+        app:layout_constraintBottom_toTopOf="@id/card_set_button_cancel"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/card_set_view"
+        app:layout_constraintTop_toBottomOf="@id/card_set_title">
+
+        <!-- Left Panel -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Message Name -->
+            <TextView
+                android:id="@+id/card_set_message_name"
+                style="@style/TextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:labelFor="@id/card_set_name"
+                android:text="@string/card_set_message_name"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Edit Card Deck Name -->
+            <EditText
+                android:id="@+id/card_set_name"
+                style="@style/EditStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/gap_normal"
+                android:autofillHints="name"
+                android:inputType="text"
+                android:maxLength="15"
+                android:textAlignment="center"
+                app:layout_constraintTop_toBottomOf="@id/card_set_message_name" />
+
+            <!-- Error Message -->
+            <TextView
+                android:id="@+id/card_set_name_error_message"
+                style="@style/TextStyle.Error"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/gap_normal"
+                app:layout_constraintTop_toBottomOf="@id/card_set_name" />
+
+            <!-- Message Name -->
+            <TextView
+                android:id="@+id/card_set_message_add"
+                style="@style/TextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/gap_normal"
+                android:text="@string/card_set_message_add"
+                app:layout_constraintTop_toBottomOf="@id/card_set_name_error_message" />
+
+            <!-- Message Remove -->
+            <TextView
+                android:id="@+id/card_set_message_remove"
+                style="@style/TextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/gap_normal"
+                android:text="@string/card_set_message_remove"
+                app:layout_constraintTop_toBottomOf="@id/card_set_message_add" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <!-- Card Recycler View (Right Panel)-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/card_set_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/gap_small"
+        android:layout_marginTop="@dimen/gap_normal"
+        android:layout_marginBottom="@dimen/gap_normal"
+        app:layout_constraintBottom_toTopOf="@id/card_set_button_cancel"
+        app:layout_constraintLeft_toRightOf="@id/card_set_panel_left"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card_set_title" />
+
+    <!-- Okay Button -->
+    <Button
+        android:id="@+id/card_set_button_okay"
+        style="@style/ButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_okay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <!-- Cancel Button -->
+    <Button
+        android:id="@+id/card_set_button_cancel"
+        style="@style/ButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

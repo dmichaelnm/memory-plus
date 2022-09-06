@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import de.dmichael.android.memory.plus.cardsets.CardSetManager
+import de.dmichael.android.memory.plus.cardsets.CardSetsActivity
 import de.dmichael.android.memory.plus.profiles.ProfileManager
 import de.dmichael.android.memory.plus.profiles.ProfilesActivity
 import de.dmichael.android.memory.plus.system.Activity
@@ -16,6 +18,9 @@ class MainMenuActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_menu)
         setUpAppearance()
+
+        // Dump Screen Information
+        Game.dumpScreenInfo(this)
 
         // Set Version Info
         val tvCopyright = findViewById<TextView>(R.id.main_menu_copyright_and_version)
@@ -33,9 +38,17 @@ class MainMenuActivity : Activity() {
         // Initialize Profile Manager
         ProfileManager.initialize(this)
 
+        // Initialize Card Set Manager
+        CardSetManager.initialize(this)
+
         // Profiles Button
         onButtonClick<Button>(R.id.main_menu_button_profiles) {
             startActivity(Intent(this, ProfilesActivity::class.java))
+        }
+
+        // Card Sets Button
+        onButtonClick<Button>(R.id.main_menu_button_card_sets) {
+            startActivity(Intent(this, CardSetsActivity::class.java))
         }
     }
 
