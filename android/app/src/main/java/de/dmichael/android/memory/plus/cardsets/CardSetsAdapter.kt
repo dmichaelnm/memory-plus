@@ -45,7 +45,7 @@ class CardSetsAdapter(private val callback: (cardSet: CardSet?, longClick: Boole
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        if (position == 0) {
+        if (position == CardSetManager.size()) {
             holder.ivCardSetImage.setImageDrawable(
                 AppCompatResources.getDrawable(
                     holder.context,
@@ -58,7 +58,7 @@ class CardSetsAdapter(private val callback: (cardSet: CardSet?, longClick: Boole
             holder.tvCardSetCardCount.visibility = View.GONE
             holder.cardSet = null
         } else {
-            val cardSet = CardSetManager.getCardSet(position - 1)
+            val cardSet = CardSetManager.getCardSet(position)
             holder.ivCardSetImage.setImageDrawable(cardSet.getDrawable(holder.context))
             holder.ivCardSetImage.contentDescription = String.format(
                 holder.context.getString(R.string.desc_image_card_set_with_name),

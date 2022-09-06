@@ -37,6 +37,7 @@ class ProfileActivity : Activity() {
         }
     }
 
+    private lateinit var btOkay: Button
     private lateinit var etProfileName: EditText
     private lateinit var tvErrorMessage: TextView
     private var profile: Profile? = null
@@ -52,6 +53,7 @@ class ProfileActivity : Activity() {
         val ibRemoveImage = findViewById<ImageButton>(R.id.profile_button_image_remove)
         etProfileName = findViewById(R.id.profile_name)
         tvErrorMessage = findViewById(R.id.profile_error_message)
+        btOkay = findViewById(R.id.profile_button_okay)
 
         // Initialize profile data
         val profileId = intent.getStringExtra(ProfilesActivity.PROFILE_ID)
@@ -128,26 +130,30 @@ class ProfileActivity : Activity() {
             ibRemoveImage.visibility = View.INVISIBLE
         }
 
-        // Back Button
-        onButtonClick<Button>(R.id.profile_button_back) {
-            if (validate()) {
-                // Save current profile image as temporary file
-                var imageUri: Uri? = null
-                if (currentProfileImage != null) {
-                    val tempFile = File.createTempFile("bmp", "tmp", cacheDir)
-                    BitmapUtil.serialize(currentProfileImage!!.bitmap, tempFile)
-                    imageUri = tempFile.toUri()
-                }
-                if (profile == null) {
-                    // Create new profile
-                    ProfileManager.addProfile(this, currentProfileName, imageUri)
-                } else {
-                    // Set value to existing profile
-                    profile!!.setProfileImage(this, imageUri)
-                    profile!!.displayName = currentProfileName
-                }
-                ProfileManager.serialize(this)
+        // Cancel Button
+        onButtonClick<Button>(R.id.profile_button_cancel) {
+            recycleCurrentProfileImage()
+            finish()
+        }
+
+        // Okay Button
+        onButtonClick<Button>(R.id.profile_button_okay) {
+            // Save current profile image as temporary file
+            var imageUri: Uri? = null
+            if (currentProfileImage != null) {
+                val tempFile = File.createTempFile("bmp", "tmp", cacheDir)
+                BitmapUtil.serialize(currentProfileImage!!.bitmap, tempFile)
+                imageUri = tempFile.toUri()
             }
+            if (profile == null) {
+                // Create new profile
+                ProfileManager.addProfile(this, currentProfileName, imageUri)
+            } else {
+                // Set value to existing profile
+                profile!!.setProfileImage(this, imageUri)
+                profile!!.displayName = currentProfileName
+            }
+            ProfileManager.serialize(this)
             recycleCurrentProfileImage()
             finish()
         }
@@ -156,11 +162,14 @@ class ProfileActivity : Activity() {
     private fun validate(): Boolean {
         return if (etProfileName.text.isBlank()) {
             tvErrorMessage.setText(R.string.profile_error_empty_name)
+            btOkay.isEnabled = false
             false
         } else if (ProfileManager.hasDisplayName(etProfileName.text.toString(), profile)) {
             tvErrorMessage.setText(R.string.profile_error_name_not_unique)
+            btOkay.isEnabled = false
             false
         } else {
+            btOkay.isEnabled = true
             tvErrorMessage.text = ""
             true
         }

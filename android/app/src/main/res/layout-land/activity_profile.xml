@@ -38,7 +38,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/gap_normal"
-        app:layout_constraintBottom_toTopOf="@id/profile_button_back"
+        app:layout_constraintBottom_toTopOf="@id/profile_button_cancel"
         app:layout_constraintLeft_toRightOf="@id/profile_guide_left"
         app:layout_constraintRight_toLeftOf="@id/profile_guide_right"
         app:layout_constraintTop_toBottomOf="@id/profile_title">
@@ -69,7 +69,8 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/profile_image_and_name_panel"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <!-- Remove Image Button -->
                     <ImageButton
@@ -133,13 +134,23 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- Back Button -->
+    <!-- Okay Button -->
     <Button
-        android:id="@+id/profile_button_back"
+        android:id="@+id/profile_button_okay"
         style="@style/ButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/button_back"
+        android:text="@string/button_okay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <!-- Cancel Button -->
+    <Button
+        android:id="@+id/profile_button_cancel"
+        style="@style/ButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
