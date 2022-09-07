@@ -14,7 +14,7 @@ import java.io.File
 import java.lang.IllegalArgumentException
 import java.util.*
 
-class CardSet {
+class CardSet : Iterable<Card> {
 
     constructor() {
         this.id = UUID.randomUUID().toString()
@@ -153,5 +153,9 @@ class CardSet {
             directory.deleteRecursively()
             Log.v(Game.TAG, "Directory '${directory.absolutePath} deleted")
         }
+    }
+
+    override fun iterator(): Iterator<Card> {
+        return cards.iterator()
     }
 }

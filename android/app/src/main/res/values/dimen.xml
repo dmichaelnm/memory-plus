@@ -16,6 +16,7 @@
     <dimen name="font_size_item_vertical">18sp</dimen>
     <dimen name="font_size_item_text_vertical">16sp</dimen>
     <dimen name="font_size_edit">24sp</dimen>
+    <dimen name="font_size_game_player_name">32sp</dimen>
 
     <!-- Shadow Offsets -->
     <integer name="shadow_radius">4</integer>
@@ -25,10 +26,13 @@
     <!-- Image Sizes -->
     <dimen name="image_size_icon">24dp</dimen>
     <dimen name="image_size_profile">96dp</dimen>
+    <dimen name="image_size_profile_game">48dp</dimen>
     <dimen name="image_size_card_set">96dp</dimen>
     <dimen name="image_size_card">96dp</dimen>
+    <dimen name="image_size_medal">32dp</dimen>
 
     <!-- Radius -->
     <dimen name="radius_item_background_selected">8pt</dimen>
     <dimen name="radius_edit_background">8pt</dimen>
+
 </resources>

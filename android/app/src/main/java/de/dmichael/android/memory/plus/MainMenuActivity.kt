@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.TextView
 import de.dmichael.android.memory.plus.cardsets.CardSetManager
 import de.dmichael.android.memory.plus.cardsets.CardSetsActivity
+import de.dmichael.android.memory.plus.game.GameActivity
 import de.dmichael.android.memory.plus.game.new.NewGameActivity
 import de.dmichael.android.memory.plus.profiles.ProfileManager
 import de.dmichael.android.memory.plus.profiles.ProfilesActivity
@@ -60,7 +61,9 @@ class MainMenuActivity : Activity() {
         onButtonClick<Button>(R.id.main_menu_button_new_game) {
             // If just one profile and one card set is configured, start directly with the game
             if (ProfileManager.size() == 1 && CardSetManager.size() == 1) {
-                // start game directly
+                val cardSet = CardSetManager.getCardSet(0)
+                val profiles = listOf(ProfileManager.getProfile(0))
+                GameActivity.launchGame(this, cardSet, profiles)
             } else {
                 startActivity(Intent(this, NewGameActivity::class.java))
             }

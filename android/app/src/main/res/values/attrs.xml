@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="GameBoardView">
+        <attr name="spacing" format="dimension" />
+        <attr name="frameSize" format="float" />
+        <attr name="frameColor" format="color" />
+        <attr name="shadowSize" format="dimension" />
+        <attr name="shadowColor" format="color" />
+        <attr name="maxRotationAngle" format="integer" />
+        <attr name="maxReplacement" format="dimension" />
+        <attr name="duration" format="integer" />
+        <attr name="discoveredAlpha" format="float" />
+    </declare-styleable>
+</resources>

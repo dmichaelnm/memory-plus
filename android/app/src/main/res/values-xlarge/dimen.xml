@@ -24,8 +24,10 @@
     <!-- Image Sizes -->
     <dimen name="image_size_icon">48dp</dimen>
     <dimen name="image_size_profile">144dp</dimen>
+    <dimen name="image_size_profile_game">72dp</dimen>
     <dimen name="image_size_card_set">144dp</dimen>
     <dimen name="image_size_card">96dp</dimen>
+    <dimen name="image_size_medal">64dp</dimen>
 
     <!-- Radius -->
     <dimen name="radius_item_background_selected">16pt</dimen>
