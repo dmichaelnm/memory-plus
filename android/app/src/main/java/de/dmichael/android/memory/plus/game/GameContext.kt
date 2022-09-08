@@ -55,6 +55,10 @@ object GameContext {
         this.initialized = true
     }
 
+    fun cardCount(): Int {
+        return cardSet!!.size(false)
+    }
+
     fun clear() {
         initialized = false
     }
@@ -83,6 +87,10 @@ object GameContext {
 
     fun isInitialized(): Boolean {
         return initialized
+    }
+
+    fun isSinglePlayer(): Boolean {
+        return players!!.size == 1
     }
 
     fun currentPlayer(): GamePlayer {
@@ -142,7 +150,13 @@ object GameContext {
             } else if (p1.hitCount < p2.hitCount) {
                 1
             } else {
-                p1.turnCount - p2.turnCount
+                if (!p1.removed && p2.removed) {
+                    -1
+                } else if (p1.removed && !p2.removed) {
+                    1
+                } else {
+                    0
+                }
             }
         }
     }

@@ -8,6 +8,7 @@
 
     <!-- Font Sizes -->
     <dimen name="font_size_text">30sp</dimen>
+    <dimen name="font_size_text_bold">36sp</dimen>
     <dimen name="font_size_title">96sp</dimen>
     <dimen name="font_size_title_small">64sp</dimen>
     <dimen name="font_size_button">48sp</dimen>
@@ -28,6 +29,10 @@
     <dimen name="image_size_card_set">144dp</dimen>
     <dimen name="image_size_card">96dp</dimen>
     <dimen name="image_size_medal">64dp</dimen>
+
+    <!-- View Sizes -->
+    <dimen name="view_size_category_width">144dp</dimen>
+    <dimen name="view_size_category_height">108dp</dimen>
 
     <!-- Radius -->
     <dimen name="radius_item_background_selected">16pt</dimen>

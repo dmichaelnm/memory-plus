@@ -52,6 +52,12 @@
         <item name="android:shadowRadius">@integer/shadow_radius</item>
     </style>
 
+    <!-- Bold Text Style -->
+    <style name="TextStyle.Bold">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/font_size_text_bold</item>
+    </style>
+
     <!-- Error Text Style -->
     <style name="TextStyle.Error">
         <item name="android:textColor">@color/text_error</item>

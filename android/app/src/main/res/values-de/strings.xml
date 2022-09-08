@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- General Words -->
+    <string name="total">Gesamt</string>
+    <string name="cards">Karten</string>
+
     <!-- General Buttons -->
     <string name="button_back">Zurück</string>
     <string name="button_okay">Okay</string>
     <string name="button_cancel">Abbrechen</string>
     <string name="button_again">Nochmal</string>
     <string name="button_start">Start</string>
+    <string name="button_clear">Löschen</string>
 
     <!-- Content Descriptions -->
     <string name="desc_image_title">Titelbild</string>
@@ -97,5 +102,19 @@
     <string name="game_result_label_points">Punkte</string>
     <string name="game_result_label_hit_rate">Treffer-Rate</string>
     <string name="game_result_label_hit_rate_value">%1$d%%</string>
+
+    <!-- Leaderboard Activity -->
+    <string name="leaderboard_title">bESTEN lISTE</string>
+    <string name="leaderboard_category_message">Wähle eine Kategorie, um deren Bestenliste anzuzeigen.</string>
+    <string name="leaderboard_average_hit_count">%1$s Treffer/Spiel</string>
+    <string name="leaderboard_hit_count">%1$s Trefferpunkte</string>
+    <string name="leaderboard_hit_rate">%1$s Trefferquote</string>
+    <string name="leaderboard_total_games">%1$s Spiele gesamt</string>
+    <string name="leaderboard_won_games">%1$s Spiele gewonnen</string>
+    <string name="leaderboard_dialog_clear_title">Bestenliste löschen?</string>
+    <string name="leaderboard_dialog_clear_message">Willst du die Bestenliste wirklich löschen?</string>
+    <string name="leaderboard_dialog_clear_option_yes">Ja, schmeiß weg</string>
+    <string name="leaderboard_dialog_clear_option_no">Nein, besser nicht</string>
+    <string name="leaderboard_empty">Noch ist hier nichts zu sehen.</string>
 
 </resources>

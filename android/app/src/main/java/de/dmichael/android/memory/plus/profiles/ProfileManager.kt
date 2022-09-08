@@ -7,6 +7,7 @@ import android.util.JsonReader
 import android.util.JsonWriter
 import android.util.Log
 import androidx.core.net.toFile
+import de.dmichael.android.memory.plus.leaderboard.LeaderboardResult
 import de.dmichael.android.memory.plus.system.BitmapUtil
 import de.dmichael.android.memory.plus.system.Game
 import java.io.*
@@ -25,6 +26,21 @@ object ProfileManager {
         return profile
     }
 
+    fun clearResults(context: Context) {
+        for (profile in profiles) {
+            profile.clearResults()
+        }
+        serialize(context)
+    }
+
+    fun getCategories(): List<Int> {
+        val set = mutableSetOf<Int>()
+        for (profile in profiles) {
+            set.addAll(profile.getCategories())
+        }
+        return set.sortedWith { c1, c2 -> c2 - c1 }
+    }
+
     fun getProfile(index: Int): Profile {
         return profiles[index]
     }
@@ -36,6 +52,24 @@ object ProfileManager {
             }
         }
         throw IllegalArgumentException("No profile found for id $id")
+    }
+
+    fun getResults(category: Int): List<LeaderboardResult> {
+        val list = mutableListOf<LeaderboardResult>()
+        for (profile in profiles) {
+            if (profile.hasResult(category)) {
+                list.add(LeaderboardResult(profile, profile.getResult(category)))
+            }
+        }
+        return list.sortedWith { r1, r2 ->
+            if (r1.result.averageHitCount > r2.result.averageHitCount) {
+                -1
+            } else if (r1.result.averageHitCount < r2.result.averageHitCount) {
+                1
+            } else {
+                0
+            }
+        }
     }
 
     fun hasDisplayName(displayName: String, excludeProfile: Profile?): Boolean {

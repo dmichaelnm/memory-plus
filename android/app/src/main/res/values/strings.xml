@@ -1,12 +1,17 @@
 <resources>
     <string name="app_name" translatable="false">Memory Plus</string>
 
+    <!-- General Words -->
+    <string name="total">Total</string>
+    <string name="cards">cards</string>
+
     <!-- General Buttons -->
     <string name="button_back">Back</string>
     <string name="button_okay">Okay</string>
     <string name="button_cancel">Cancel</string>
     <string name="button_again">Again</string>
     <string name="button_start">Start</string>
+    <string name="button_clear">Clear</string>
 
     <!-- Content Descriptions -->
     <string name="desc_image_title">Title Image</string>
@@ -100,4 +105,18 @@
     <string name="game_result_label_points">Points</string>
     <string name="game_result_label_hit_rate">Hit rate</string>
     <string name="game_result_label_hit_rate_value">%1$d%%</string>
+
+    <!-- Leaderboard Activity -->
+    <string name="leaderboard_title">lEADER bOARD</string>
+    <string name="leaderboard_category_message">Select a category to show the results.</string>
+    <string name="leaderboard_average_hit_count">%1$s hits/game</string>
+    <string name="leaderboard_hit_count">%1$s hit points</string>
+    <string name="leaderboard_hit_rate">%1$s hit rate</string>
+    <string name="leaderboard_total_games">%1$s total games</string>
+    <string name="leaderboard_won_games">%1$s won games</string>
+    <string name="leaderboard_dialog_clear_title">Clear Leaderboard?</string>
+    <string name="leaderboard_dialog_clear_message">Do you really want to clear the leaderboard?</string>
+    <string name="leaderboard_dialog_clear_option_yes">Yes, throw it away</string>
+    <string name="leaderboard_dialog_clear_option_no">No, not at all</string>
+    <string name="leaderboard_empty">Nothing to see here yet.</string>
 </resources>

@@ -35,6 +35,13 @@ class Profile {
             reader.nextNull()
             this.imageUri = null
         }
+        assert(reader.nextName() == "results")
+        reader.beginArray()
+        while (reader.hasNext()) {
+            val result = ProfileResult(reader)
+            results[result.cardCount] = result
+        }
+        reader.endArray()
         reader.endObject()
     }
 
@@ -42,9 +49,63 @@ class Profile {
     var displayName: String
 
     private var imageUri: Uri? = null
+    private val results = mutableMapOf<Int, ProfileResult>()
+
+    fun addResult(
+        cardCount: Int,
+        singlePlayer: Boolean,
+        hasWon: Boolean,
+        turnCount: Int,
+        hitCount: Int
+    ) {
+        if (!results.containsKey(cardCount)) {
+            results[cardCount] = ProfileResult(cardCount)
+        }
+        val result = results[cardCount]!!
+        result.totalGameCount++
+        if (!singlePlayer) {
+            result.competitiveGameCount++
+            if (hasWon) {
+                result.wonGameCount++
+            }
+        }
+        result.turnCount += turnCount
+        result.hitCount += hitCount
+    }
+
+    fun clearResults() {
+        results.clear()
+    }
+
+    fun getCategories(): Set<Int>{
+        return results.keys
+    }
 
     fun getProfileImageUri(): Uri? {
         return imageUri
+    }
+
+    fun hasResult(category: Int): Boolean {
+        if (category == -1) {
+            return results.isNotEmpty()
+        }
+        return results.containsKey(category)
+    }
+
+    fun getResult(category: Int): ProfileResult {
+        return if (category == -1) {
+            val totalResult = ProfileResult(category)
+            for (result in results.values) {
+                totalResult.totalGameCount += result.totalGameCount
+                totalResult.competitiveGameCount += result.competitiveGameCount
+                totalResult.wonGameCount += result.wonGameCount
+                totalResult.turnCount += result.turnCount
+                totalResult.hitCount += result.hitCount
+            }
+            totalResult
+        } else {
+            results[category]!!
+        }
     }
 
     fun getProfileImage(context: Context, defaultImage: Boolean = true): Drawable? {
@@ -93,6 +154,12 @@ class Profile {
         } else {
             writer.nullValue()
         }
+        writer.name("results")
+        writer.beginArray()
+        for (result in results.values) {
+            result.serialize(writer)
+        }
+        writer.endArray()
         writer.endObject()
     }
 
