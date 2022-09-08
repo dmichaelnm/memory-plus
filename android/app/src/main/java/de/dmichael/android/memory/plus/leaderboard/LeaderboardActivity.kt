@@ -19,7 +19,12 @@ class LeaderboardActivity : Activity() {
 
         val vwEmpty = findViewById<View>(R.id.leaderboard_empty)
         val vwPanel = findViewById<View>(R.id.leaderboard_panel)
+        val vwCategory = findViewById<View>(R.id.leaderboard_category_panel)
         val btClear = findViewById<Button>(R.id.leaderboard_button_clear)
+
+        if (ProfileManager.getCategories().size == 1) {
+            vwCategory.visibility = View.GONE
+        }
 
         val results = ProfileManager.getResults(-1)
         if (results.isEmpty()) {
