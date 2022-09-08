@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ActivityStyle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context=".DialogActivity">
+
+    <!-- Vertical Center Guide -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/dialog_center_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/dialog_title"
+        style="@style/TitleStyle.Dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/gap_small"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Message -->
+    <TextView
+        android:id="@+id/dialog_message"
+        style="@style/TextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/gap_small"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@id/dialog_title" />
+
+    <!-- Option 1 -->
+    <Button
+        android:id="@+id/dialog_button_option_1"
+        style="@style/ButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/gap_big"
+        android:layout_marginEnd="@dimen/gap_normal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/dialog_center_guideline"
+        app:layout_constraintTop_toBottomOf="@id/dialog_message" />
+
+    <!-- Option 2 -->
+    <Button
+        android:id="@+id/dialog_button_option_2"
+        style="@style/ButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/gap_normal"
+        android:layout_marginTop="@dimen/gap_big"
+        app:layout_constraintLeft_toRightOf="@id/dialog_center_guideline"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dialog_message" />
+
+    <!-- Option 3 -->
+    <Button
+        android:id="@+id/dialog_button_option_3"
+        style="@style/ButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/gap_normal"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@id/dialog_button_option_1" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

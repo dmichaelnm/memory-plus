@@ -53,6 +53,10 @@ class GameCardView(
             }
         }
 
+        if (card.state == GameCard.State.Discovered) {
+            alpha = attributes.discoveredAlpha
+        }
+
         card.view = this
     }
 
