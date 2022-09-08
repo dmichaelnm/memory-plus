@@ -79,15 +79,21 @@ object ProfileManager {
         if (!intialized) {
             val file = getProfilesFile(context)
             if (file.exists()) {
-                JsonReader(BufferedReader(FileReader(file))).use { reader ->
-                    reader.beginObject()
-                    assert(reader.nextName() == "profiles")
-                    reader.beginArray()
-                    while (reader.hasNext()) {
-                        profiles.add(Profile(reader))
+                try {
+                    JsonReader(BufferedReader(FileReader(file))).use { reader ->
+                        reader.beginObject()
+                        assert(reader.nextName() == "profiles")
+                        reader.beginArray()
+                        while (reader.hasNext()) {
+                            profiles.add(Profile(reader))
+                        }
+                        reader.endArray()
+                        reader.endObject()
                     }
-                    reader.endArray()
-                    reader.endObject()
+                } catch (ex: Exception) {
+                    Log.e(Game.TAG, "Failed to initialize profile manager: $ex", ex)
+                    getDirectory(context).deleteRecursively()
+                    initialize(context)
                 }
             }
             Log.v(Game.TAG, "Profile Manager: ${size()} profiles deserialized")

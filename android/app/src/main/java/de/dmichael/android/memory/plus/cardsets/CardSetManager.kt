@@ -78,15 +78,21 @@ object CardSetManager {
         if (!initialized) {
             val file = getCardDecksFile(context)
             if (file.exists()) {
-                JsonReader(BufferedReader(FileReader(file))).use { reader ->
-                    reader.beginObject()
-                    assert(reader.nextName() == "cardSets")
-                    reader.beginArray()
-                    while (reader.hasNext()) {
-                        cardSets.add(CardSet(reader))
+                try {
+                    JsonReader(BufferedReader(FileReader(file))).use { reader ->
+                        reader.beginObject()
+                        assert(reader.nextName() == "cardSets")
+                        reader.beginArray()
+                        while (reader.hasNext()) {
+                            cardSets.add(CardSet(reader))
+                        }
+                        reader.endArray()
+                        reader.endObject()
                     }
-                    reader.endArray()
-                    reader.endObject()
+                } catch (ex: Exception) {
+                    Log.e(Game.TAG, "Failed to initialize card set manager: $ex", ex)
+                    getDirectory(context).deleteRecursively()
+                    initialize(context)
                 }
             }
             Log.v(Game.TAG, "Card Set Manager: ${size()} card sets deserialized")
