@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ActivityStyle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".game.result.GameResultActivity">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/game_result_title"
+        style="@style/TitleStyle.Small"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/gap_normal"
+        android:text="@string/game_result_title"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Message -->
+    <TextView
+        android:id="@+id/game_result_message"
+        style="@style/TextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/gap_normal"
+        android:text="@string/game_result_message"
+        app:layout_constraintTop_toBottomOf="@id/game_result_title" />
+
+    <!-- Ranking View -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/game_result_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/gap_normal"
+        android:layout_marginBottom="@dimen/gap_normal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@id/game_result_store_results"
+        app:layout_constraintTop_toBottomOf="@id/game_result_message" />
+
+    <!-- Checkbox Store Results -->
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/game_result_store_results"
+        style="@style/TextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="@string/game_result_store_results"
+        app:layout_constraintBottom_toTopOf="@id/game_result_button_back" />
+
+    <!-- Again Button -->
+    <Button
+        android:id="@+id/game_result_button_again"
+        style="@style/ButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_again"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <!-- Back Button -->
+    <Button
+        android:id="@+id/game_result_button_back"
+        style="@style/ButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

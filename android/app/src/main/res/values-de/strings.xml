@@ -4,6 +4,8 @@
     <string name="button_back">Zurück</string>
     <string name="button_okay">Okay</string>
     <string name="button_cancel">Abbrechen</string>
+    <string name="button_again">Nochmal</string>
+    <string name="button_start">Start</string>
 
     <!-- Content Descriptions -->
     <string name="desc_image_title">Titelbild</string>
@@ -15,6 +17,9 @@
     <string name="desc_icon_remove_profile_image">Profilbild entfernen</string>
     <string name="desc_image_card">Karte Nummer %1$d</string>
     <string name="desc_image_card_new">Neue Karte</string>
+    <string name="desc_image_medal_gold">Gold Medaille</string>
+    <string name="desc_image_medal_silver">Silber Medaille</string>
+    <string name="desc_image_medal_bronze">Bronze Medaille</string>
 
     <!-- Main Menu Activity -->
     <string name="main_menu_sub_title">Spiel es mit deinen eigenen Karten!</string>
@@ -71,5 +76,26 @@
     <string name="new_game_which_card_set">Bitte wähle das Karten-Set aus, mit dem du spielen willst.</string>
     <string name="new_game_which_profiles">Bitte wähle alle Spielerprofile aus, die mitspielen wollen.</string>
     <string name="new_game_card_set_card_count">( %1$d Karten )</string>
+
+    <!-- Game Activity -->
+    <string name="game_dialog_cancel_single_title">Spiel abbrechen?</string>
+    <string name="game_dialog_cancel_single_message">Willst du das Spiel wirklich abbrechen?</string>
+    <string name="game_dialog_cancel_single_option_yes">Ja, ich muss weg</string>
+    <string name="game_dialog_cancel_single_option_no">Nein, doch nicht</string>
+    <string name="game_dialog_cancel_multi_title">Spiel verlassen oder abbrechen?</string>
+    <string name="game_dialog_cancel_multi_message">Du kannst das Spiel verlassen und die anderen können weiterspielen oder du kannst das Spiel abbrechen. Was willst du tun?</string>
+    <string name="game_dialog_cancel_multi_option_leave">Ich will das Spiel verlassen</string>
+    <string name="game_dialog_cancel_multi_option_cancel">Lass uns aufhören</string>
+    <string name="game_dialog_cancel_multi_option_no">Weder noch, ich hab mich verklickt</string>
+    <string name="game_turns">Zug: %1$d</string>
+    <string name="game_hits">Treffer: %1$d</string>
+
+    <!-- Game Result Activity -->
+    <string name="game_result_title">eRGEBNISSE</string>
+    <string name="game_result_message">Das Spiel is zu Ende. Hier siehst du die Rangliste aller Spieler. Herzlichen Glückwunsch an den Gewinner.</string>
+    <string name="game_result_store_results">Übernimm die Ergebnisse in die Bestenliste</string>
+    <string name="game_result_label_points">Punkte</string>
+    <string name="game_result_label_hit_rate">Treffer-Rate</string>
+    <string name="game_result_label_hit_rate_value">%1$d%%</string>
 
 </resources>

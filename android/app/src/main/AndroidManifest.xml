@@ -28,6 +28,8 @@
         <activity android:name=".cardsets.CardSetsActivity" />
         <activity android:name=".cardsets.CardSetActivity" />
         <activity android:name=".game.new.NewGameActivity" />
+        <activity android:name=".game.GameActivity" />
+        <activity android:name=".game.result.GameResultActivity" />
     </application>
 
 </manifest>

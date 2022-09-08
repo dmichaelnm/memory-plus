@@ -19,6 +19,7 @@
         android:id="@+id/view_item_profile_vertical_name"
         style="@style/ItemStyle.Vertical"
         android:layout_width="@dimen/image_size_profile"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textAlignment="center" />
 
 </LinearLayout>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ActivityStyle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".game.GameActivity">
+
+    <!-- Player Panel -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/game_board_info_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/gap_normal"
+        app:layout_constraintBottom_toTopOf="@id/game_board_view"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Current Player -->
+        <LinearLayout
+            android:id="@+id/game_board_player_panel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/game_board_result_panel"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="UseCompoundDrawables">
+
+            <!-- Profile image of current player -->
+            <ImageView
+                android:id="@+id/game_board_player_profile_image"
+                android:layout_width="@dimen/image_size_profile_game"
+                android:layout_height="@dimen/image_size_profile_game"
+                android:layout_marginEnd="@dimen/gap_small"
+                android:contentDescription="@string/desc_image_profile" />
+
+            <!-- Name of current player -->
+            <TextView
+                android:id="@+id/game_board_player_profile_name"
+                style="@style/TextStyle.PlayerName"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/image_size_profile_game"
+                android:layout_marginStart="@dimen/gap_small"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <!-- Turns / Hits -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/game_board_result_panel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/game_board_player_panel">
+
+            <!-- Turns -->
+            <TextView
+                android:id="@+id/game_board_result_turns"
+                style="@style/TextStyle.TurnsHits"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/game_board_result_hits"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Hits -->
+            <TextView
+                android:id="@+id/game_board_result_hits"
+                style="@style/TextStyle.TurnsHits"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                app:layout_constraintLeft_toRightOf="@id/game_board_result_turns"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Game Board -->
+    <de.dmichael.android.memory.plus.game.GameBoardView
+        android:id="@+id/game_board_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/gap_normal"
+        app:discoveredAlpha="0.5"
+        app:duration="200"
+        app:frameColor="@color/card_frame_color"
+        app:frameSize="0.05"
+        app:layout_constraintBottom_toTopOf="@id/game_board_button_cancel"
+        app:layout_constraintTop_toBottomOf="@id/game_board_info_panel"
+        app:maxReplacement="@dimen/gap_very_small"
+        app:maxRotationAngle="5"
+        app:shadowColor="@color/card_shadow_color"
+        app:shadowSize="@dimen/gap_very_small"
+        app:spacing="@dimen/gap_small" />
+
+    <!-- Cancel Button -->
+    <Button
+        android:id="@+id/game_board_button_cancel"
+        style="@style/ButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

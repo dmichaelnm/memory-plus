@@ -28,4 +28,11 @@
     <color name="edit_background">#80000000</color>
     <color name="edit_text">@color/primary</color>
 
+    <!-- Card Colors -->
+    <color name="card_frame_color">#FFFFFFFF</color>
+    <color name="card_shadow_color">#AF000000</color>
+
+    <!-- Game Colors -->
+    <color name="game_player_name_color">@color/primary</color>
+
 </resources>
