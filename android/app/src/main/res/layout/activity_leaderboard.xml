@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ActivityStyle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".leaderboard.LeaderboardActivity">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/leaderboard_title"
+        style="@style/TitleStyle.Small"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/gap_normal"
+        android:text="@string/leaderboard_title"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/gap_normal"
+        android:layout_marginBottom="@dimen/gap_normal"
+        app:layout_constraintBottom_toTopOf="@id/leaderboard_button_back"
+        app:layout_constraintTop_toBottomOf="@id/leaderboard_title">
+
+        <!-- Empty Panel -->
+        <TextView
+            android:id="@+id/leaderboard_empty"
+            style="@style/TextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/leaderboard_empty" />
+
+        <!-- Leaderboard Panel -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/leaderboard_panel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- Category Text -->
+            <TextView
+                android:id="@+id/leaderboard_category_message"
+                style="@style/TextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/leaderboard_category_message"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Category View -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/leaderboard_category_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/gap_normal"
+                app:layout_constraintTop_toBottomOf="@id/leaderboard_category_message" />
+
+            <!-- Leaderboard View (Right Panel) -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/leaderboard_result_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/gap_normal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/leaderboard_category_view" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+
+    <!-- Clear Button -->
+    <Button
+        android:id="@+id/leaderboard_button_clear"
+        style="@style/ButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_clear"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <!-- Back Button -->
+    <Button
+        android:id="@+id/leaderboard_button_back"
+        style="@style/ButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

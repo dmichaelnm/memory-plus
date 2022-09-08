@@ -30,6 +30,7 @@
         <activity android:name=".game.new.NewGameActivity" />
         <activity android:name=".game.GameActivity" />
         <activity android:name=".game.result.GameResultActivity" />
+        <activity android:name=".leaderboard.LeaderboardActivity" />
     </application>
 
 </manifest>

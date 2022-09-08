@@ -10,6 +10,7 @@
     <color name="text">#FFFFFFFF</color>
     <color name="text_shadow">#FF000000</color>
     <color name="text_error">#FFF8BBD0</color>
+    <color name="text_result">#FF42A5F5</color>
 
     <!-- Button Colors -->
     <color name="button_text">@color/primary</color>
@@ -20,6 +21,7 @@
     <color name="item_text">@color/primary</color>
     <color name="item_background">@android:color/transparent</color>
     <color name="item_background_selected">#40000000</color>
+    <color name="item_background_checked">#40FFFFFF</color>
 
     <!-- Title Text Color -->
     <color name="title">@color/text</color>

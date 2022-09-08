@@ -9,6 +9,7 @@ import de.dmichael.android.memory.plus.cardsets.CardSetManager
 import de.dmichael.android.memory.plus.cardsets.CardSetsActivity
 import de.dmichael.android.memory.plus.game.GameActivity
 import de.dmichael.android.memory.plus.game.new.NewGameActivity
+import de.dmichael.android.memory.plus.leaderboard.LeaderboardActivity
 import de.dmichael.android.memory.plus.profiles.ProfileManager
 import de.dmichael.android.memory.plus.profiles.ProfilesActivity
 import de.dmichael.android.memory.plus.system.Activity
@@ -67,6 +68,11 @@ class MainMenuActivity : Activity() {
             } else {
                 startActivity(Intent(this, NewGameActivity::class.java))
             }
+        }
+
+        // Leaderboard Button
+        onButtonClick<Button>(R.id.main_menu_button_leaderboard) {
+            startActivity(Intent(this, LeaderboardActivity::class.java))
         }
     }
 

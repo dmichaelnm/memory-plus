@@ -14,7 +14,7 @@ class GameResultAdapter(private val players: List<GamePlayer>) :
     Adapter<GameResultAdapter.ViewHolder>(R.layout.view_item_result) {
 
     class ViewHolder(
-        view: View,
+        val view: View,
         val tvPlayerName: TextView,
         val ivPlayerImage: ImageView,
         val ivMedal: ImageView,
@@ -25,9 +25,9 @@ class GameResultAdapter(private val players: List<GamePlayer>) :
     override fun createViewHolder(view: View): ViewHolder {
         return ViewHolder(
             view,
-            view.findViewById(R.id.view_item_result_player_name),
-            view.findViewById(R.id.view_item_result_player_image),
-            view.findViewById(R.id.view_item_result_medal),
+            view.findViewById(R.id.view_item_leaderboard_result_player_name),
+            view.findViewById(R.id.view_item_leaderboard_result_player_image),
+            view.findViewById(R.id.view_item_leaderboard_result_medal),
             view.findViewById(R.id.view_item_result_points_value),
             view.findViewById(R.id.view_item_result_hit_rate_value)
         )
@@ -68,6 +68,10 @@ class GameResultAdapter(private val players: List<GamePlayer>) :
             hitRate
         )
         holder.showClick = false
+
+        if (player.removed) {
+            holder.view.alpha = 0.5f
+        }
     }
 
     override fun getItemCount(): Int {
