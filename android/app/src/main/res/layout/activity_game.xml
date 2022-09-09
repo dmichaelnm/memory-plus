@@ -12,7 +12,7 @@
         android:id="@+id/game_board_info_panel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/gap_normal"
+        android:layout_marginTop="@dimen/gap_big"
         app:layout_constraintBottom_toTopOf="@id/game_board_view"
         app:layout_constraintTop_toTopOf="parent">
 

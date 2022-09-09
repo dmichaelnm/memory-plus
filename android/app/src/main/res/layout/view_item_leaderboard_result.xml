@@ -12,7 +12,7 @@
         style="@style/ItemStyle.Horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
+        android:textAlignment="textStart"
         app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Player Profile Image -->
@@ -50,44 +50,159 @@
         app:layout_constraintTop_toBottomOf="@id/view_item_leaderboard_result_player_name">
 
         <!-- Average Hit Points -->
-        <TextView
-            android:gravity="center"
-            android:id="@+id/view_item_leaderboard_result_average_hit_points"
-            style="@style/TextStyle.Bold"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/view_item_leaderboard_result_average_hit_points_label"
+                style="@style/TextStyle.Label.Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/gap_small"
+                android:text="@string/leaderboard_average_hit_count"
+                android:textAlignment="textEnd"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/view_item_leaderboard_result_average_hit_points_value"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/view_item_leaderboard_result_average_hit_points_value"
+                style="@style/TextStyle.Value.Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/gap_small"
+                android:gravity="start"
+                app:layout_constraintLeft_toRightOf="@id/view_item_leaderboard_result_average_hit_points_label"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.25" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!-- Hit Points -->
-        <TextView
-            android:gravity="center"
-            android:id="@+id/view_item_leaderboard_result_hit_points"
-            style="@style/TextStyle"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/view_item_leaderboard_result_hit_points_label"
+                style="@style/TextStyle.Label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/gap_small"
+                android:text="@string/leaderboard_hit_count"
+                android:textAlignment="textEnd"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/view_item_leaderboard_result_hit_points_value"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/view_item_leaderboard_result_hit_points_value"
+                style="@style/TextStyle.Value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/gap_small"
+                android:gravity="start"
+                app:layout_constraintLeft_toRightOf="@id/view_item_leaderboard_result_hit_points_label"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.25" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!-- Hit Rate -->
-        <TextView
-            android:gravity="center"
-            android:id="@+id/view_item_leaderboard_result_hit_rate"
-            style="@style/TextStyle"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/view_item_leaderboard_result_hit_rate_label"
+                style="@style/TextStyle.Label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/gap_small"
+                android:text="@string/leaderboard_hit_rate"
+                android:textAlignment="textEnd"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/view_item_leaderboard_result_hit_rate_value"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/view_item_leaderboard_result_hit_rate_value"
+                style="@style/TextStyle.Value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/gap_small"
+                android:gravity="start"
+                app:layout_constraintLeft_toRightOf="@id/view_item_leaderboard_result_hit_rate_label"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.25" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!-- Total Games -->
-        <TextView
-            android:gravity="center"
-            android:id="@+id/view_item_leaderboard_result_total_games"
-            style="@style/TextStyle"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content">
 
-        <!-- Total Games -->
-        <TextView
-            android:gravity="center"
-            android:id="@+id/view_item_leaderboard_result_won_games"
-            style="@style/TextStyle"
+            <TextView
+                android:id="@+id/view_item_leaderboard_result_total_games_label"
+                style="@style/TextStyle.Label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/gap_small"
+                android:text="@string/leaderboard_total_games"
+                android:textAlignment="textEnd"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/view_item_leaderboard_result_total_games_value"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/view_item_leaderboard_result_total_games_value"
+                style="@style/TextStyle.Value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/gap_small"
+                android:gravity="start"
+                app:layout_constraintLeft_toRightOf="@id/view_item_leaderboard_result_total_games_label"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.25" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Won Games -->
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/view_item_leaderboard_result_won_games_label"
+                style="@style/TextStyle.Label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/gap_small"
+                android:text="@string/leaderboard_won_games"
+                android:textAlignment="textEnd"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/view_item_leaderboard_result_won_games_value"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/view_item_leaderboard_result_won_games_value"
+                style="@style/TextStyle.Value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/gap_small"
+                android:gravity="start"
+                app:layout_constraintLeft_toRightOf="@id/view_item_leaderboard_result_won_games_label"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.25" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 

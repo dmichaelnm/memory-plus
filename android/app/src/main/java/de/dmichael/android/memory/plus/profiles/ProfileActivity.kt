@@ -89,7 +89,7 @@ class ProfileActivity : Activity() {
             // Set new profile image
             val bitmap = BitmapUtil.deserialize(uri)
             if (bitmap != null) {
-                val croppedBitmap = BitmapUtil.cropCircle(bitmap)
+                val croppedBitmap = BitmapUtil.cropCircle(bitmap, 10f)
                 currentProfileImage = BitmapDrawable(resources, croppedBitmap)
                 ivProfileImage.setImageDrawable(currentProfileImage)
                 // remove temporary file

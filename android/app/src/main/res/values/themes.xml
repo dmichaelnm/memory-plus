@@ -52,8 +52,23 @@
         <item name="android:shadowRadius">@integer/shadow_radius</item>
     </style>
 
+    <!-- Label Text Style -->
+    <style name="TextStyle.Label">
+    </style>
+
     <!-- Bold Text Style -->
-    <style name="TextStyle.Bold">
+    <style name="TextStyle.Label.Bold">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/font_size_text_bold</item>
+    </style>
+
+    <!-- Label Text Style -->
+    <style name="TextStyle.Value">
+        <item name="android:textColor">@color/text_result</item>
+    </style>
+
+    <!-- Bold Text Style -->
+    <style name="TextStyle.Value.Bold">
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">@dimen/font_size_text_bold</item>
     </style>

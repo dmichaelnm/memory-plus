@@ -22,6 +22,7 @@ class GameResultActivity : Activity() {
         setUpAppearance()
 
         cbStoreResults = findViewById<CheckBox>(R.id.game_result_store_results)
+        cbStoreResults.isChecked = !GameContext.canceled
 
         // Back Button
         onButtonClick<Button>(R.id.game_result_button_back) {

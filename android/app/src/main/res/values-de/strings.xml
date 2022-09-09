@@ -106,11 +106,12 @@
     <!-- Leaderboard Activity -->
     <string name="leaderboard_title">bESTEN lISTE</string>
     <string name="leaderboard_category_message">Wähle eine Kategorie, um deren Bestenliste anzuzeigen.</string>
-    <string name="leaderboard_average_hit_count">%1$s Treffer/Spiel</string>
-    <string name="leaderboard_hit_count">%1$s Trefferpunkte</string>
-    <string name="leaderboard_hit_rate">%1$s Trefferquote</string>
-    <string name="leaderboard_total_games">%1$s Spiele gesamt</string>
-    <string name="leaderboard_won_games">%1$s Spiele gewonnen</string>
+    <string name="leaderboard_average_hit_count">Treffer/Spiel</string>
+    <string name="leaderboard_hit_count">Trefferpunkte</string>
+    <string name="leaderboard_hit_rate">Trefferquote</string>
+    <string name="leaderboard_hit_rate_value">%1$s%%</string>
+    <string name="leaderboard_total_games">Spiele gesamt</string>
+    <string name="leaderboard_won_games">Spiele gewonnen</string>
     <string name="leaderboard_dialog_clear_title">Bestenliste löschen?</string>
     <string name="leaderboard_dialog_clear_message">Willst du die Bestenliste wirklich löschen?</string>
     <string name="leaderboard_dialog_clear_option_yes">Ja, schmeiß weg</string>

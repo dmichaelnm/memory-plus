@@ -109,11 +109,12 @@
     <!-- Leaderboard Activity -->
     <string name="leaderboard_title">lEADER bOARD</string>
     <string name="leaderboard_category_message">Select a category to show the results.</string>
-    <string name="leaderboard_average_hit_count">%1$s hits/game</string>
-    <string name="leaderboard_hit_count">%1$s hit points</string>
-    <string name="leaderboard_hit_rate">%1$s hit rate</string>
-    <string name="leaderboard_total_games">%1$s total games</string>
-    <string name="leaderboard_won_games">%1$s won games</string>
+    <string name="leaderboard_average_hit_count">Hits/Game</string>
+    <string name="leaderboard_hit_count">Hit Points</string>
+    <string name="leaderboard_hit_rate">Hit Rate</string>
+    <string name="leaderboard_hit_rate_value">%1$s%%</string>
+    <string name="leaderboard_total_games">Total Games</string>
+    <string name="leaderboard_won_games">Won Games</string>
     <string name="leaderboard_dialog_clear_title">Clear Leaderboard?</string>
     <string name="leaderboard_dialog_clear_message">Do you really want to clear the leaderboard?</string>
     <string name="leaderboard_dialog_clear_option_yes">Yes, throw it away</string>

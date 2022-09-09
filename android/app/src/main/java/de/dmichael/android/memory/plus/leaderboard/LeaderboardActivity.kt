@@ -14,17 +14,19 @@ class LeaderboardActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_leaderboard)
+        val singleLayout = ProfileManager.getCategories().size <= 1
+        val panelId = if (singleLayout) {
+            setContentView(R.layout.activity_leaderboard_single)
+            R.id.leaderboard_result_view
+        } else {
+            setContentView(R.layout.activity_leaderboard)
+            R.id.leaderboard_panel
+        }
         setUpAppearance()
 
         val vwEmpty = findViewById<View>(R.id.leaderboard_empty)
-        val vwPanel = findViewById<View>(R.id.leaderboard_panel)
-        val vwCategory = findViewById<View>(R.id.leaderboard_category_panel)
+        val vwPanel = findViewById<View>(panelId)
         val btClear = findViewById<Button>(R.id.leaderboard_button_clear)
-
-        if (ProfileManager.getCategories().size == 1) {
-            vwCategory.visibility = View.GONE
-        }
 
         val results = ProfileManager.getResults(-1)
         if (results.isEmpty()) {
@@ -69,13 +71,16 @@ class LeaderboardActivity : Activity() {
         val rvResults = findViewById<RecyclerView>(R.id.leaderboard_result_view)
         rvResults.adapter = LeaderboardResultAdapter(ProfileManager.getResults(-1))
 
-        // Category View
-        val rvCategories = findViewById<RecyclerView>(R.id.leaderboard_category_view)
-        rvCategories.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        rvCategories.adapter =
-            LeaderboardCategoryAdapter(ProfileManager.getCategories()) { category ->
-                rvResults.adapter = LeaderboardResultAdapter(ProfileManager.getResults(category))
-            }
+        if (!singleLayout) {
+            // Category View
+            val rvCategories = findViewById<RecyclerView>(R.id.leaderboard_category_view)
+            rvCategories.layoutManager =
+                LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+            rvCategories.adapter =
+                LeaderboardCategoryAdapter(ProfileManager.getCategories()) { category ->
+                    rvResults.adapter =
+                        LeaderboardResultAdapter(ProfileManager.getResults(category))
+                }
+        }
     }
 }

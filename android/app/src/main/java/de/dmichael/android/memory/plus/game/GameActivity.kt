@@ -81,6 +81,7 @@ class GameActivity : Activity() {
             val playerCount = GameContext.getRealPlayerCount()
             if ((playerCount == 1 && dialogOption == 1) || (playerCount > 1 && dialogOption == 2)) {
                 // Cancel the game
+                GameContext.canceled = true
                 startActivity(Intent(this, GameResultActivity::class.java))
             } else if (playerCount > 1 && dialogOption == 1) {
                 // Leave the game

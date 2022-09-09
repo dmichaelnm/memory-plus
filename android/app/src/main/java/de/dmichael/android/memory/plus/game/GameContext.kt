@@ -16,6 +16,8 @@ object GameContext {
         SecondCard
     }
 
+    var canceled = false
+
     private var cardSet: CardSet? = null
     private var onStateChanged: ((locked: Boolean, state: State) -> Unit)? = null
     private var initialized = false
@@ -42,6 +44,7 @@ object GameContext {
     ) {
         val random = Random(SystemClock.elapsedRealtime())
 
+        this.canceled = false
         this.cardSet = cardSet
         this.onStateChanged = onStateChanged
         this.firstCard = null
@@ -66,6 +69,7 @@ object GameContext {
     fun reset() {
         val random = Random(SystemClock.elapsedRealtime())
 
+        this.canceled = false
         this.firstCard = null
         this.secondCard = null
         for (player in players!!) {

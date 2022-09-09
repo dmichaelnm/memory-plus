@@ -15,17 +15,29 @@ object BitmapUtil {
 
     private const val hexChars = "0123456789abcdef"
 
-    fun cropCircle(bitmap: Bitmap): Bitmap {
+    fun cropCircle(bitmap: Bitmap, frameSize: Float): Bitmap {
         val size = bitmap.width
-        val croppedBitmap = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888)
+        val croppedBitmap = Bitmap.createBitmap(
+            size,
+            size,
+            Bitmap.Config.ARGB_8888
+        )
         val canvas = Canvas(croppedBitmap)
         val paintColor = Paint()
         paintColor.flags = Paint.ANTI_ALIAS_FLAG
-        canvas.drawCircle(size / 2f, size / 2f, size / 2f, paintColor)
+        canvas.drawCircle(size / 2f, size / 2f, size / 2f - frameSize, paintColor)
         val paintImage = Paint()
         paintImage.xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_ATOP)
+        paintImage.color = Color.WHITE
         canvas.drawBitmap(bitmap, 0f, 0f, paintImage)
+        val paintStroke = Paint()
+        paintStroke.flags = Paint.ANTI_ALIAS_FLAG
+        paintStroke.color = Color.WHITE
+        paintStroke.style = Paint.Style.STROKE
+        paintStroke.strokeWidth = frameSize
+        canvas.drawCircle(size / 2f, size / 2f, size / 2f - frameSize / 2f, paintStroke)
         bitmap.recycle()
+
         return croppedBitmap
     }
 

@@ -5,59 +5,61 @@
     style="@style/ActivityStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ImageCropActivity">
+    tools:context=".leaderboard.LeaderboardActivity">
 
     <!-- Title -->
     <TextView
-        android:id="@+id/image_crop_title"
+        android:id="@+id/leaderboard_title"
         style="@style/TitleStyle.Small"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/gap_big"
-        android:text="@string/image_crop_title"
+        android:text="@string/leaderboard_title"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Message -->
-    <TextView
-        android:id="@+id/image_crop_message"
-        style="@style/TextStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/gap_normal"
-        android:text="@string/image_crop_message"
-        app:layout_constraintTop_toBottomOf="@id/image_crop_title" />
-
-    <!-- Image Crop View -->
-    <com.canhub.cropper.CropImageView
-        android:id="@+id/image_crop_view"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/gap_normal"
         android:layout_marginBottom="@dimen/gap_normal"
-        app:cropFixAspectRatio="true"
-        app:cropAspectRatioX="1"
-        app:cropAspectRatioY="1"
-        app:layout_constraintBottom_toTopOf="@id/image_crop_button_okay"
-        app:layout_constraintTop_toBottomOf="@id/image_crop_message" />
+        app:layout_constraintBottom_toTopOf="@id/leaderboard_button_back"
+        app:layout_constraintTop_toBottomOf="@id/leaderboard_title">
 
-    <!-- Okay Button -->
+        <!-- Empty Panel -->
+        <TextView
+            android:id="@+id/leaderboard_empty"
+            style="@style/TextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/leaderboard_empty" />
+
+        <!-- Leaderboard View (Right Panel) -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/leaderboard_result_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    </FrameLayout>
+
+    <!-- Clear Button -->
     <Button
-        android:id="@+id/image_crop_button_okay"
+        android:id="@+id/leaderboard_button_clear"
         style="@style/ButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/button_okay"
-        android:textAlignment="textStart"
+        android:text="@string/button_clear"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
 
-    <!-- Cancel Button -->
+    <!-- Back Button -->
     <Button
-        android:id="@+id/image_crop_button_cancel"
+        android:id="@+id/leaderboard_button_back"
         style="@style/ButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/button_cancel"
+        android:text="@string/button_back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 

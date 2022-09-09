@@ -13,7 +13,6 @@
         style="@style/TitleStyle.Small"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/gap_big"
         android:text="@string/leaderboard_title"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,49 +33,21 @@
             android:gravity="center"
             android:text="@string/leaderboard_empty" />
 
-        <!-- Leaderboard Panel -->
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/leaderboard_panel"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-            <!-- Category Panel -->
-            <LinearLayout
-                android:id="@+id/leaderboard_category_panel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <!-- Category Text -->
-                <TextView
-                    android:id="@+id/leaderboard_category_message"
-                    style="@style/TextStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/leaderboard_category_message" />
-
-                <!-- Category View -->
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/leaderboard_category_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/gap_normal" />
-
-            </LinearLayout>
 
             <!-- Leaderboard View (Right Panel) -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/leaderboard_result_view"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginTop="@dimen/gap_normal"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/leaderboard_category_panel" />
+                app:layout_constraintWidth_percent="0.5"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </FrameLayout>
 
     <!-- Clear Button -->

@@ -10,7 +10,7 @@ android {
         applicationId "de.dmichael.android.memory.plus"
         minSdk 28
         targetSdk 32
-        versionCode 6
+        versionCode 7
         versionName "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -32,7 +32,7 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.5.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
     implementation 'com.github.CanHub:Android-Image-Cropper:4.3.1'
