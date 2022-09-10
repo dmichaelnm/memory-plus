@@ -10,7 +10,7 @@ android {
         applicationId "de.dmichael.android.memory.plus"
         minSdk 28
         targetSdk 33
-        versionCode 8
+        versionCode 9
         versionName "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
