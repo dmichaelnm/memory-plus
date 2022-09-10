@@ -7,9 +7,12 @@
 
     <!-- Default Card Set Names -->
     <string-array name="default_card_set_names">
-        <item>Photos</item>
-        <item>Symbols</item>
+        <item>Photos (easy)</item>
+        <item>Circles (hard)</item>
     </string-array>
+
+    <!-- Default Profile Name -->
+    <string name="default_profile_name">Me</string>
 
     <!-- General Buttons -->
     <string name="button_back">Back</string>

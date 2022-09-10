@@ -7,6 +7,7 @@ import android.util.JsonReader
 import android.util.JsonWriter
 import android.util.Log
 import androidx.core.net.toFile
+import de.dmichael.android.memory.plus.R
 import de.dmichael.android.memory.plus.leaderboard.LeaderboardResult
 import de.dmichael.android.memory.plus.system.BitmapUtil
 import de.dmichael.android.memory.plus.system.Game
@@ -129,6 +130,13 @@ object ProfileManager {
                     getDirectory(context).deleteRecursively()
                     initialize(context)
                 }
+            } else {
+                addProfile(
+                    context,
+                    context.getString(R.string.default_profile_name),
+                    null
+                )
+                serialize(context)
             }
             Log.v(Game.TAG, "Profile Manager: ${size()} profiles deserialized")
             intialized = true
