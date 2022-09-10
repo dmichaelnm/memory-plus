@@ -109,6 +109,7 @@
                         android:layout_marginStart="@dimen/gap_normal"
                         android:autofillHints="name"
                         android:inputType="text"
+                        android:minHeight="48dp"
                         android:lines="1"
                         android:textAlignment="center"
                         app:layout_constraintBottom_toBottomOf="parent"

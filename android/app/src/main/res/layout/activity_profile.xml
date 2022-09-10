@@ -84,6 +84,7 @@
         android:autofillHints="name"
         android:inputType="text"
         android:lines="1"
+        android:minHeight="48dp"
         android:textAlignment="center"
         app:layout_constraintTop_toBottomOf="@id/profile_image_panel" />
 
