@@ -4,6 +4,12 @@
     <string name="total">Gesamt</string>
     <string name="cards">Karten</string>
 
+    <!-- Default Card Set Names -->
+    <string-array name="default_card_set_names">
+        <item>Fotos</item>
+        <item>Symbole</item>
+    </string-array>
+
     <!-- General Buttons -->
     <string name="button_back">Zurück</string>
     <string name="button_okay">Okay</string>

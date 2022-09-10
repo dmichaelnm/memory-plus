@@ -1,6 +1,7 @@
 package de.dmichael.android.memory.plus.cardsets
 
 import android.content.Context
+import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.util.JsonReader
@@ -46,9 +47,8 @@ class CardSet : Iterable<Card> {
     val id: String
     var displayName: String = ""
 
-    fun addCard(context: Context, uri: Uri): Boolean {
-        val bitmap = BitmapUtil.deserialize(uri)
-        val hash = BitmapUtil.hash(bitmap!!)
+    fun addCard(context: Context, bitmap: Bitmap): Boolean {
+        val hash = BitmapUtil.hash(bitmap)
 
         for (card in cards) {
             if (card.getHash() == hash && card.getState() != Card.State.Deleted) {
@@ -61,6 +61,11 @@ class CardSet : Iterable<Card> {
         cards.add(card)
 
         return true
+    }
+
+    fun addCard(context: Context, uri: Uri): Boolean {
+        val bitmap = BitmapUtil.deserialize(uri)
+        return addCard(context, bitmap!!)
     }
 
     fun getCard(index: Int, excludeDeletedCards: Boolean): Card {

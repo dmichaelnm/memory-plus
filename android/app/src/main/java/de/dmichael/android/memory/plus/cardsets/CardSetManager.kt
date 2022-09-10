@@ -1,9 +1,11 @@
 package de.dmichael.android.memory.plus.cardsets
 
 import android.content.Context
+import android.graphics.BitmapFactory
 import android.util.JsonReader
 import android.util.JsonWriter
 import android.util.Log
+import de.dmichael.android.memory.plus.R
 import de.dmichael.android.memory.plus.system.Game
 import java.io.*
 import java.lang.IllegalArgumentException
@@ -94,6 +96,23 @@ object CardSetManager {
                     getDirectory(context).deleteRecursively()
                     initialize(context)
                 }
+            } else {
+                val assetManager = context.assets
+                val defaultCardSets = assetManager.list("card_sets")
+                val names = context.resources.getStringArray(R.array.default_card_set_names)
+                for ((index, path) in defaultCardSets!!.withIndex()) {
+                    val cardSet = CardSet()
+                    val files = assetManager.list("card_sets/$path")
+                    for (cardFile in files!!) {
+                        assetManager.open("card_sets/$path/$cardFile").use { inStream ->
+                            val bitmap = BitmapFactory.decodeStream(inStream)
+                            cardSet.addCard(context, bitmap)
+                        }
+                    }
+                    cardSet.displayName = names[index]
+                    addOrUpdateCardSet(cardSet)
+                }
+                serialize(context)
             }
             Log.v(Game.TAG, "Card Set Manager: ${size()} card sets deserialized")
             initialized = true
