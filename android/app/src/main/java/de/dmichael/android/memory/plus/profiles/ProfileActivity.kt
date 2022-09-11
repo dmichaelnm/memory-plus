@@ -165,8 +165,7 @@ class ProfileActivity : Activity() {
             vwLoadingCircle.visibility = View.VISIBLE
 
             val imageUri = getProfileImageUri()
-            val newProfile = profile == null
-            if (newProfile) {
+            if (profile == null) {
                 FirebaseUtil.createUniqueIdentifier(
                     currentProfileName,
                     { identifier ->
@@ -177,43 +176,47 @@ class ProfileActivity : Activity() {
                                 currentProfileName,
                                 imageUri
                             )
+                        storeProfile(profile!!, true)
                     },
                     { ex -> Game.showUnexpectedError(this, ex) }
                 )
             } else {
                 profile!!.setProfileImage(this, imageUri)
                 profile!!.displayName = currentProfileName
+                storeProfile(profile!!, false)
             }
-
-            // Store profile image in firebase
-            FirebaseUtil.uploadFile(
-                profile!!.getProfileImageUri(),
-                "profiles/${profile!!.id}",
-                {
-                    // Write profile to firestore
-                    val properties = mapOf(
-                        "identifier" to profile!!.id,
-                        "displayName" to profile!!.displayName,
-                        "imageFile" to profile!!.getProfileImageUri()?.lastPathSegment
-                    )
-                    FirebaseUtil.createOrUpdateDocument(
-                        "profiles",
-                        profile!!.id,
-                        properties,
-                        !newProfile,
-                        {
-                            finish()
-                        },
-                        { ex ->
-                            vwLoadingCircle.visibility = View.INVISIBLE
-                            Game.showUnexpectedError(this, ex)
-                        }
-                    )
-                }, { ex ->
-                    vwLoadingCircle.visibility = View.INVISIBLE
-                    Game.showUnexpectedError(this, ex)
-                })
         }
+    }
+
+    private fun storeProfile(profile: Profile, newProfile: Boolean) {
+        // Store profile image in firebase
+        FirebaseUtil.uploadFile(
+            profile.getProfileImageUri(),
+            "profiles/${profile.id}",
+            {
+                // Write profile to firestore
+                val properties = mapOf(
+                    "identifier" to profile.id,
+                    "displayName" to profile.displayName,
+                    "imageFile" to profile.getProfileImageUri()?.lastPathSegment
+                )
+                FirebaseUtil.createOrUpdateDocument(
+                    "profiles",
+                    profile.id,
+                    properties,
+                    !newProfile,
+                    {
+                        finish()
+                    },
+                    { ex ->
+                        vwLoadingCircle.visibility = View.INVISIBLE
+                        Game.showUnexpectedError(this, ex)
+                    }
+                )
+            }, { ex ->
+                vwLoadingCircle.visibility = View.INVISIBLE
+                Game.showUnexpectedError(this, ex)
+            })
     }
 
     private fun getProfileImageUri(): Uri? {
