@@ -3,6 +3,8 @@ package de.dmichael.android.memory.plus.profiles
 import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.os.Bundle
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -16,6 +18,8 @@ import de.dmichael.android.memory.plus.ImageCropActivity
 import de.dmichael.android.memory.plus.R
 import de.dmichael.android.memory.plus.system.Activity
 import de.dmichael.android.memory.plus.system.BitmapUtil
+import de.dmichael.android.memory.plus.system.FirebaseUtil
+import de.dmichael.android.memory.plus.system.Game
 import java.io.File
 
 class ProfileActivity : Activity() {
@@ -40,6 +44,7 @@ class ProfileActivity : Activity() {
     private lateinit var btOkay: Button
     private lateinit var etProfileName: EditText
     private lateinit var tvErrorMessage: TextView
+    private lateinit var vwLoadingCircle: View
     private var profile: Profile? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,9 +56,11 @@ class ProfileActivity : Activity() {
         val tvMessage = findViewById<TextView>(R.id.profile_message)
         val ivProfileImage = findViewById<ImageButton>(R.id.profile_image)
         val ibRemoveImage = findViewById<ImageButton>(R.id.profile_button_image_remove)
+        val tvIdentifierHint = findViewById<TextView>(R.id.profile_hint_identifier)
         etProfileName = findViewById(R.id.profile_name)
         tvErrorMessage = findViewById(R.id.profile_error_message)
         btOkay = findViewById(R.id.profile_button_okay)
+        vwLoadingCircle = findViewById(R.id.profile_loading_circle)
 
         // Initialize profile data
         val profileId = intent.getStringExtra(ProfilesActivity.PROFILE_ID)
@@ -61,6 +68,7 @@ class ProfileActivity : Activity() {
             // Create Profile
             tvTitle.setText(R.string.profile_title_create)
             tvMessage.setText(R.string.profile_message_create)
+            tvIdentifierHint.visibility = View.GONE
             validate()
         } else {
             // Edit Profile
@@ -69,6 +77,22 @@ class ProfileActivity : Activity() {
             tvMessage.setText(R.string.profile_message_edit)
             currentProfileImage = profile!!.getProfileImage(this, false) as BitmapDrawable?
             currentProfileName = profile!!.displayName
+            tvIdentifierHint.visibility = View.VISIBLE
+            val spannableString = SpannableString(
+                String.format(
+                    getString(R.string.profile_hint_identifier),
+                    profile!!.id
+                )
+            )
+            val startIndex = resources.getInteger(R.integer.profile_hint_identifier_start_index)
+            spannableString.setSpan(
+                ForegroundColorSpan(getColor(R.color.text_result)),
+                startIndex,
+                startIndex + profile!!.id.length,
+                SpannableString.SPAN_INCLUSIVE_EXCLUSIVE
+            )
+            tvIdentifierHint.text = spannableString
+
         }
 
         // Set profile image
@@ -138,25 +162,67 @@ class ProfileActivity : Activity() {
 
         // Okay Button
         onButtonClick<Button>(R.id.profile_button_okay) {
-            // Save current profile image as temporary file
-            var imageUri: Uri? = null
-            if (currentProfileImage != null) {
-                val tempFile = File.createTempFile("bmp", "tmp", cacheDir)
-                BitmapUtil.serialize(currentProfileImage!!.bitmap, tempFile)
-                imageUri = tempFile.toUri()
-            }
-            if (profile == null) {
-                // Create new profile
-                ProfileManager.addProfile(this, currentProfileName, imageUri)
+            vwLoadingCircle.visibility = View.VISIBLE
+
+            val imageUri = getProfileImageUri()
+            val newProfile = profile == null
+            if (newProfile) {
+                FirebaseUtil.createUniqueIdentifier(
+                    currentProfileName,
+                    { identifier ->
+                        profile =
+                            ProfileManager.addProfile(
+                                this,
+                                identifier,
+                                currentProfileName,
+                                imageUri
+                            )
+                    },
+                    { ex -> Game.showUnexpectedError(this, ex) }
+                )
             } else {
-                // Set value to existing profile
                 profile!!.setProfileImage(this, imageUri)
                 profile!!.displayName = currentProfileName
             }
-            ProfileManager.serialize(this)
-            recycleCurrentProfileImage()
-            finish()
+
+            // Store profile image in firebase
+            FirebaseUtil.uploadFile(
+                profile!!.getProfileImageUri(),
+                "profiles/${profile!!.id}",
+                {
+                    // Write profile to firestore
+                    val properties = mapOf(
+                        "identifier" to profile!!.id,
+                        "displayName" to profile!!.displayName,
+                        "imageFile" to profile!!.getProfileImageUri()?.lastPathSegment
+                    )
+                    FirebaseUtil.createOrUpdateDocument(
+                        "profiles",
+                        profile!!.id,
+                        properties,
+                        !newProfile,
+                        {
+                            finish()
+                        },
+                        { ex ->
+                            vwLoadingCircle.visibility = View.INVISIBLE
+                            Game.showUnexpectedError(this, ex)
+                        }
+                    )
+                }, { ex ->
+                    vwLoadingCircle.visibility = View.INVISIBLE
+                    Game.showUnexpectedError(this, ex)
+                })
         }
+    }
+
+    private fun getProfileImageUri(): Uri? {
+        if (currentProfileImage != null) {
+            val tempFile = File.createTempFile("bmp", "tmp", cacheDir)
+            BitmapUtil.serialize(currentProfileImage!!.bitmap, tempFile)
+            return tempFile.toUri()
+        }
+        return null
     }
 
     private fun validate(): Boolean {

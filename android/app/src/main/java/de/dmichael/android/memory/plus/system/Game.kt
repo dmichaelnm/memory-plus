@@ -6,6 +6,8 @@ import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.util.Log
+import android.widget.Toast
+import de.dmichael.android.memory.plus.R
 
 object Game {
 
@@ -41,5 +43,10 @@ object Game {
                     "( dpi = ${metrics.densityDpi}, " +
                     "density = ${metrics.density}, $dpiWidth x $dpiHeight, layout = $layout  )"
         )
+    }
+
+    fun showUnexpectedError(context: Context, ex: Exception) {
+        val message = String.format(context.getString(R.string.error_unexpected), ex.message)
+        Toast.makeText(context, message, Toast.LENGTH_LONG).show()
     }
 }

@@ -2,12 +2,12 @@ package de.dmichael.android.memory.plus.profiles
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
 import de.dmichael.android.memory.plus.DialogActivity
 import de.dmichael.android.memory.plus.R
 import de.dmichael.android.memory.plus.system.Activity
+import de.dmichael.android.memory.plus.system.FirebaseUtil
 import de.dmichael.android.memory.plus.system.Game
 
 class ProfilesActivity : Activity() {
@@ -28,8 +28,21 @@ class ProfilesActivity : Activity() {
         val launcher = DialogActivity.getLauncher(this) { option, data ->
             if (option == 1) {
                 val profile = data as Profile
-                ProfileManager.removeProfile(this, profile)
-                refreshProfilesListView()
+                // Remove remote profile
+                FirebaseUtil.removeDocument(
+                    "profiles",
+                    profile.id,
+                    {},
+                    { ex -> Game.showUnexpectedError(this, ex) })
+                FirebaseUtil.removeDirectory(
+                    "profiles/${profile.id}",
+                    {},
+                    { ex -> Game.showUnexpectedError(this, ex) })
+                // Remove local profile
+                removeLocalProfile(profile)
+            } else if (option == 2) {
+                // Remove only local profile
+                removeLocalProfile(data as Profile)
             }
         }
 
@@ -54,9 +67,9 @@ class ProfilesActivity : Activity() {
                     this,
                     R.string.profiles_dialog_remove_title,
                     R.string.profiles_dialog_remove_message,
-                    R.string.profiles_dialog_remove_option_yes,
+                    R.string.profiles_dialog_remove_option_yes_both,
+                    R.string.profiles_dialog_remove_option_yes_local,
                     R.string.profiles_dialog_remove_option_no,
-                    -1,
                     profile,
                     launcher
                 )
@@ -75,5 +88,10 @@ class ProfilesActivity : Activity() {
 
     private fun refreshProfilesListView() {
         rvProfiles.adapter = ProfilesAdapter(callback)
+    }
+
+    private fun removeLocalProfile(profile: Profile) {
+        ProfileManager.removeProfile(this, profile)
+        refreshProfilesListView()
     }
 }

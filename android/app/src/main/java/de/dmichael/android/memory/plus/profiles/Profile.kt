@@ -12,12 +12,11 @@ import androidx.core.net.toUri
 import de.dmichael.android.memory.plus.R
 import de.dmichael.android.memory.plus.system.BitmapUtil
 import de.dmichael.android.memory.plus.system.Game
-import java.util.*
 
 class Profile {
 
-    constructor(context: Context, displayName: String, imageUri: Uri?) {
-        this.id = UUID.randomUUID().toString()
+    constructor(context: Context, identifier: String, displayName: String, imageUri: Uri?) {
+        this.id = identifier
         this.displayName = displayName
         setProfileImage(context, imageUri)
     }

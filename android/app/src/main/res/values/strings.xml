@@ -5,6 +5,9 @@
     <string name="total">Total</string>
     <string name="cards">cards</string>
 
+    <!-- General Messages -->
+    <string name="error_unexpected">Unexpected error: %1$s</string>
+
     <!-- Default Card Set Names -->
     <string-array name="default_card_set_names">
         <item>Photos (easy)</item>
@@ -55,8 +58,9 @@
     <string name="profiles_message_remove">To remove a profile, tap on the profile image or name for a few seconds.</string>
     <string name="profiles_new_profile">New Profile</string>
     <string name="profiles_dialog_remove_title">Remove Profile?</string>
-    <string name="profiles_dialog_remove_message">Do you really want to remove this profile?</string>
-    <string name="profiles_dialog_remove_option_yes">Yes please.</string>
+    <string name="profiles_dialog_remove_message">How do you want to remove your profile?</string>
+    <string name="profiles_dialog_remove_option_yes_both">Remove my profile completely.</string>
+    <string name="profiles_dialog_remove_option_yes_local">Remove only my local profile.</string>
     <string name="profiles_dialog_remove_option_no">No, not at all.</string>
 
     <!-- Profile Activity -->
@@ -66,6 +70,7 @@
     <string name="profile_message_edit">Here you can change your name and your profile picture.</string>
     <string name="profile_error_empty_name">The profile name must not be empty.</string>
     <string name="profile_error_name_not_unique">The chosen name is already used by another profile.</string>
+    <string name="profile_hint_identifier">With your profile id %1$s you can import your profile into other devices.</string>
 
     <!-- Card Sets Activity -->
     <string name="card_sets_title">cARD sETS</string>

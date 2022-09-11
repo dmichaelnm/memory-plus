@@ -15,7 +15,8 @@ class ProfilesAdapter(private val callback: (profile: Profile?, longClick: Boole
     class ViewHolder(
         view: View,
         val ivProfileImage: ImageView,
-        val tvProfileName: TextView
+        val tvProfileName: TextView,
+        val tvProfileIdentifier: TextView
     ) : Adapter.ViewHolder(view) {
         var profile: Profile? = null
     }
@@ -24,7 +25,8 @@ class ProfilesAdapter(private val callback: (profile: Profile?, longClick: Boole
         val holder = ViewHolder(
             view,
             view.findViewById(R.id.view_item_profile_horizontal_image),
-            view.findViewById(R.id.view_item_profile_horizontal_name)
+            view.findViewById(R.id.view_item_profile_horizontal_name),
+            view.findViewById(R.id.view_item_profile_horizontal_identifier)
         )
 
         view.setOnClickListener {
@@ -52,6 +54,7 @@ class ProfilesAdapter(private val callback: (profile: Profile?, longClick: Boole
             holder.ivProfileImage.contentDescription =
                 holder.context.getString(R.string.desc_image_profile_new)
             holder.tvProfileName.setText(R.string.profiles_new_profile)
+            holder.tvProfileIdentifier.visibility = View.GONE
         } else {
             val profile = ProfileManager.getProfile(position)
             holder.profile = profile
@@ -61,6 +64,7 @@ class ProfilesAdapter(private val callback: (profile: Profile?, longClick: Boole
                 profile.displayName
             )
             holder.tvProfileName.text = profile.displayName
+            holder.tvProfileIdentifier.text = profile.id
         }
     }
 
